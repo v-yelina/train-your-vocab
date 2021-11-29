@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  db:
+    image: mysql:5.7
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+    ports:
+      - "33306:3306"
+    volumes:
+      - ./dbdata:/var/lib/mysql

@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(
+    90deg,
+    #d1c1b3 25%,
+    #308594 25%,
+    #308594 65%,
+    #d1c1b3 65%,
+    #d1c1b3 100%
+  );
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* Navigation bar styles */
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  margin: 20px 30px;
+  padding: 5px;
+  background-color: white;
+  border: 2px solid white;
+}
+
+.navlink {
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #d1c1b3;
+}
+
+/* Main page styles */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* <article class="appIntroduction">
+      <h3>
+      <p> */
+
+.appIntroduction {
+  position: relative;
+  background-color: white;
+  width: 30%;
+  margin: 20vh 30% 20vh 35%;
+  padding: 8% 5% 8% 20%;
+}
+
+.appIntroduction img {
+  position: absolute;
+  top: -50px;
+  left: -350px;
+  width: 550px;
+}
+
+.appIntroduction h3 {
+  text-align: right;
+}
+
+.appIntroduction p {
+  text-align: justify;
+  text-indent: 2%;
+}
+
+/* Styles for Card Game */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  width: 20%;
+  margin: 6% auto 10%;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 2.6px;
+}
+
+.cardGame {
+  transition: transform 1s;
+  transform-style: flat;
+}
+
+.card .cardContent {
+  width: 95%;
+  margin: 30px auto 30px;
+  text-align: center;
+}
+
+.card .cardContent img {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.card .buttons {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.card .buttons .btn {
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.card .buttons .btn:first-child {
+  border: 3px solid green;
+}
+
+.card .buttons .btn:last-child {
+  border: 3px solid red;
+}
