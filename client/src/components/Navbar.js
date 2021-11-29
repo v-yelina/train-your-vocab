@@ -10,6 +10,9 @@ export default (props) => {
       <NavLink className="navlink" to="/cards">
         Cards Game
       </NavLink>
+      <NavLink className="navlink" to="/enter">
+        Enter translation
+      </NavLink>
     </nav>
   );
 };
