@@ -13,6 +13,12 @@ export default (props) => {
       <NavLink className="navlink" to="/enter">
         Enter translation
       </NavLink>
+      <NavLink className="navlink" to="/login">
+        Login
+      </NavLink>
+      <NavLink className="navlink" to="/registration">
+        Registration
+      </NavLink>
     </nav>
   );
 };

@@ -47,10 +47,6 @@ code {
   margin: 0 auto;
 }
 
-/* <article class="appIntroduction">
-      <h3>
-      <p> */
-
 .appIntroduction {
   position: relative;
   background-color: white;
@@ -99,7 +95,7 @@ code {
   text-align: center;
 }
 
-.card .cardContent img {
+.card img {
   width: 95%;
   margin: 0 auto;
 }
@@ -117,10 +113,34 @@ code {
   border-radius: 5px;
 }
 
-.card .buttons .btn:first-child {
+.cardGame .buttons .btn:first-child {
   border: 3px solid green;
 }
 
-.card .buttons .btn:last-child {
+.cardGame .buttons .btn:last-child {
   border: 3px solid red;
+}
+
+/* Styles for Enter Translation */
+.enterGame input {
+  margin: 20px 0;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+
+.enterGame .buttons .btn:first-child {
+  border: 3px solid red;
+}
+
+.enterGame .buttons .btn:last-child {
+  border: 3px solid green;
+}
+
+.wrongAnswer {
+  border: 3px solid red;
+}
+
+.rightAnswer {
+  border: 5px solid green;
 }

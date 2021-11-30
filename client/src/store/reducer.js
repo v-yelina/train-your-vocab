@@ -1,6 +1,6 @@
 const initialState = {
   //   isAuth: false,
-  //   users: [],
+  users: [],
   myvocab: [
     ["action", "'ækʃən", "действие"],
     ["angry", "'æŋgri", "сердит[ый]"],
