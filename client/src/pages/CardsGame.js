@@ -37,12 +37,12 @@ const CardsGame = () => {
   const renderCardContent = () => {
     return translation ? (
       <div className="cardContent" onClick={() => onClickHandler()}>
-        <h3>{randomWord[2]}</h3>
+        <h3 className="targetWord">{randomWord[2]}</h3>
         <img src={picUrl} alt="Word" />
       </div>
     ) : (
       <div className="cardContent" onClick={() => onClickHandler()}>
-        <h3>{randomWord[0]}</h3>
+        <h3 className="targetWord">{randomWord[0]}</h3>
         <img
           src="https://image.freepik.com/free-vector/question-mark-sign-brush-stroke-trash-style-typography-vector_53876-140880.jpg"
           alt="Word"

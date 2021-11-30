@@ -24,7 +24,7 @@ const EnterTranslation = () => {
   const questionCard = () => {
     return (
       <article className="card enterGame">
-        <h3>{randomWord[2]}</h3>
+        <h3 className="targetWord">{randomWord[2]}</h3>
         <img
           src="https://image.freepik.com/free-vector/question-mark-sign-brush-stroke-trash-style-typography-vector_53876-140880.jpg"
           alt="Word"
@@ -71,8 +71,14 @@ const EnterTranslation = () => {
           isTrue === 0 ? "wrongAnswer" : isTrue === 1 ? "rightAnswer" : ""
         }`}
       >
-        <h3>{randomWord[2]}</h3>
+        <h3 className="targetWord">{randomWord[2]}</h3>
         <p>{randomWord[0]}</p>
+        <div className="answerImg">
+          <img
+            src="https://image.freepik.com/free-vector/check-cross-signs-paint-design_1102-228.jpg"
+            alt="answer"
+          />
+        </div>
         <Button
           type="button"
           title="Next word"
