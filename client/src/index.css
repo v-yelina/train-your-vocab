@@ -22,6 +22,18 @@ code {
     monospace;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  width: 25%;
+  margin: 5% auto 5%;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 2.6px;
+}
+
 /* Main page styles */
 .container {
   width: 90%;
@@ -32,8 +44,8 @@ code {
   position: relative;
   background-color: white;
   width: 30%;
-  margin: 20vh 30% 20vh 35%;
-  padding: 8% 5% 8% 20%;
+  margin: 15vh 25% 10vh 35%;
+  padding: 8% 5% 1% 15%;
 }
 
 .appIntroduction img {
@@ -51,18 +63,13 @@ code {
   text-align: justify;
   text-indent: 2%;
 }
-/* Styles for Card Game */
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border-radius: 10px;
-  width: 20%;
-  margin: 6% auto 10%;
-  padding: 10px;
-  box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 2.6px;
+
+.freepic {
+  display: inline-block;
+  margin-bottom: 15px;
 }
+
+/* Styles for Card Game */
 
 .cardGame {
   transition: transform 1s;
@@ -80,41 +87,12 @@ code {
   margin: 0 auto;
 }
 
-.card .buttons {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 30px;
-}
-
-.card .buttons .btn {
-  background-color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.cardGame .buttons .btn:first-child {
-  border: 3px solid green;
-}
-
-.cardGame .buttons .btn:last-child {
-  border: 3px solid red;
-}
-
 /* Styles for Enter Translation */
 .enterGame input {
-  margin: 20px 0;
+  margin-top: 20px;
   padding: 5px 10px;
   border: none;
   border-bottom: 1px solid grey;
-}
-
-.enterGame .buttons .btn:first-child {
-  border: 3px solid red;
-}
-
-.enterGame .buttons .btn:last-child {
-  border: 3px solid green;
 }
 
 .wrongAnswer {

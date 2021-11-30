@@ -6,6 +6,7 @@
   text-transform: uppercase;
   font-weight: 700;
   padding: 10px 30px;
+  margin: 15px 0;
   cursor: pointer;
   &-login {
     border: 2px solid #308594;
@@ -14,4 +15,32 @@
       color: white;
     }
   }
+  &-beige {
+    border: 2px solid #d1c1b3;
+    &:hover {
+      background-color: #d1c1b3;
+      color: white;
+    }
+  }
+  &-red {
+    border: 2px solid red;
+    &:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+  &-green {
+    border: 2px solid green;
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 20px auto;
 }

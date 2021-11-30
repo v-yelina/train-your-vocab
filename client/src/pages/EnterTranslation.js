@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import Button from "../components/ui/Button/Button";
 
 const EnterTranslation = () => {
   const [answer, setAnswer] = useState("");
@@ -36,24 +37,24 @@ const EnterTranslation = () => {
           placeholder="Enter translation here"
         />
         <div className="buttons">
-          <button
-            className="btn"
-            onClick={() => {
+          <Button
+            type="button"
+            title="Don't know"
+            onButtonClick={() => {
               setShowAnswer(1);
               setIsTrue(0);
             }}
-          >
-            Don't know
-          </button>
-          <button
-            className="btn"
-            onClick={() => {
+            className="btn-red"
+          />
+          <Button
+            type="button"
+            title="Check"
+            onButtonClick={() => {
               checkAnswer();
               setShowAnswer(1);
             }}
-          >
-            Check
-          </button>
+            className="btn-green"
+          />
         </div>
       </article>
     );
@@ -72,16 +73,16 @@ const EnterTranslation = () => {
       >
         <h3>{randomWord[2]}</h3>
         <p>{randomWord[0]}</p>
-        <button
-          className="btn"
-          onClick={() => {
+        <Button
+          type="button"
+          title="Next word"
+          onButtonClick={() => {
             getRandomWord();
             setShowAnswer(0);
             setAnswer("");
           }}
-        >
-          Next word
-        </button>
+          className="btn-green"
+        />
       </article>
     );
   };

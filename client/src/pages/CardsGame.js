@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import Button from "../components/ui/Button/Button";
 
 const CardsGame = () => {
   const dictionary = useSelector((state) => state.myvocab);
@@ -8,6 +9,10 @@ const CardsGame = () => {
   const [randomWord, setRandomWord] = useState(
     dictionary[Math.floor(Math.random() * dictionary.length)]
   );
+
+  const onClickButton = (e) => {
+    e.preventDefault();
+  };
 
   const getRandomWord = () => {
     setRandomWord(dictionary[Math.floor(Math.random() * dictionary.length)]);
@@ -50,8 +55,22 @@ const CardsGame = () => {
     <article className="card cardGame">
       {renderCardContent()}
       <div className="buttons">
-        <button className="btn">Already know</button>
-        <button className="btn">Learn</button>
+        <Button
+          type="button"
+          title="Already know"
+          onButtonClick={() => {
+            onClickButton();
+          }}
+          className="btn-green"
+        />
+        <Button
+          type="button"
+          title="Learn"
+          onButtonClick={() => {
+            onClickButton();
+          }}
+          className="btn-beige"
+        />
       </div>
     </article>
   );

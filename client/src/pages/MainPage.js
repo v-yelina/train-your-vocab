@@ -1,6 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "../components/ui/Button/Button";
 
 const MainPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <article class="appIntroduction">
@@ -14,12 +18,28 @@ const MainPage = () => {
           tincidunt id aliquet risus feugiat in. Auctor augue mauris augue neque
           gravida in fermentum et. Feugiat in fermentum urna.
         </p>
-        <span>
-          Images from
+        <span className="freepic">
+          Images from &nbsp;
           <a href="https://www.freepik.com/">Freepik</a>
         </span>
-        <button className="login-btn btn">Log In to Start</button>
-        <button className="signin-btn btn">Create Account</button>
+        <div className="buttons">
+          <Button
+            type="button"
+            title="Login"
+            onButtonClick={() => {
+              navigate("/login");
+            }}
+            className="btn-login"
+          />
+          <Button
+            type="button"
+            title="Create account"
+            onButtonClick={() => {
+              navigate("/registration");
+            }}
+            className="btn-beige"
+          />
+        </div>
       </article>
     </div>
   );
