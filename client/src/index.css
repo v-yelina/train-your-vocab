@@ -22,25 +22,6 @@ code {
     monospace;
 }
 
-/* Navigation bar styles */
-
-.nav {
-  display: flex;
-  flex-direction: row;
-  width: max-content;
-  margin: 20px 30px;
-  padding: 5px;
-  background-color: white;
-  border: 2px solid white;
-}
-
-.navlink {
-  text-decoration: none;
-  padding: 10px;
-  text-align: center;
-  border: 2px solid #d1c1b3;
-}
-
 /* Main page styles */
 .container {
   width: 90%;
@@ -70,7 +51,6 @@ code {
   text-align: justify;
   text-indent: 2%;
 }
-
 /* Styles for Card Game */
 .card {
   display: flex;

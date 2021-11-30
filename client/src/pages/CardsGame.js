@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-const Card = () => {
+const CardsGame = () => {
   const dictionary = useSelector((state) => state.myvocab);
   const [translation, setTranslation] = useState(false);
   const [randomWord, setRandomWord] = useState(
@@ -57,4 +57,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default CardsGame;
