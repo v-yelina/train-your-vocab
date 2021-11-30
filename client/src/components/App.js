@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import MainPage from "./MainPage";
-import CardsGame from "./CardsGame";
+import MainPage from "../pages/MainPage";
+import CardsGame from "../pages/CardsGame";
 import Navbar from "./Navbar";
-import EnterTranslation from "./EnterTranslation";
-import Login from "./Login";
-import Registration from "./Registration";
+import EnterTranslation from "../pages/EnterTranslation";
+import Login from "../pages/Login";
+import Registration from "../pages/Registration";
 
 export default (props) => (
   <div className="container">
