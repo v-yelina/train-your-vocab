@@ -1,0 +1,12 @@
+.field {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  &__label {
+    width: 30%;
+  }
+
+  &__input {
+    width: 60%;
+  }
+}

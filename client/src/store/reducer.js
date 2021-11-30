@@ -1,5 +1,15 @@
+import { SET_AUTH, SET_ERROR, EMPTY_AUTH, CLEAR_ERROR } from "./actions";
+
+const emptyAuth = {
+  isAuth: false,
+  userId: null,
+  email: "",
+  username: "",
+  role: "",
+};
+
 const initialState = {
-  //   isAuth: false,
+  auth: emptyAuth,
   users: [],
   myvocab: [
     ["action", "'ækʃən", "действие"],
@@ -303,18 +313,43 @@ const initialState = {
     ["expect", "ɪk'spekt", "ждать, ожидать"],
     ["actual", "'ækʧuəl", "фактический, актуальный"],
   ],
+  errors: {
+    isError: false,
+    message: "",
+  },
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    // case LOGIN:
-    //   return { ...state, isAuth: true };
+    case SET_AUTH:
+      return {
+        ...state,
+        auth: payload,
+      };
 
-    // case LOGOUT:
-    //   return { ...state, isAuth: false };
+    case SET_ERROR:
+      return {
+        ...state,
+        errors: {
+          isError: true,
+          message: payload,
+        },
+      };
 
-    // case FETCH_USERS:
-    //   return { ...state, users: payload };
+    case EMPTY_AUTH:
+      return {
+        ...state,
+        auth: emptyAuth,
+      };
+
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        errors: {
+          isError: false,
+          message: "",
+        },
+      };
 
     default:
       return state;

@@ -1,9 +1,12 @@
 import React from "react";
-import "./Field.css";
+import "./Field.scss";
 
 const Field = (props) => {
   return (
     <div className="field">
+      <label className="field__label" htmlFor={props.id}>
+        {props.label}
+      </label>
       <input
         type={props.type}
         id={props.id}
