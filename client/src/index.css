@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap");
 
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,6 +40,9 @@ code {
 .targetWord {
   font-size: 1.5rem;
   text-transform: uppercase;
+  text-align: center;
+  line-height: 1.5rem;
+  margin: 10px;
 }
 
 /* Main page styles */
@@ -115,12 +121,12 @@ code {
 }
 
 .wrongAnswer img {
-  width: 500px;
-  margin-left: -250px;
+  width: 460px;
+  margin-left: -230px;
 }
 
 .rightAnswer img {
-  width: 500px;
+  width: 460px;
 }
 
 /* Styles for Login Page */
@@ -142,4 +148,51 @@ code {
 .login-window .btn-login {
   width: 30%;
   margin: 20px auto 10px;
+}
+
+/* One Game stats styles */
+.oneGameStat {
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gameResult {
+  text-align: center;
+  border: 1px solid #d1c1b3;
+  border-bottom: none;
+}
+
+.gameResult h2 {
+  margin: 10px;
+}
+
+.answerList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #d1c1b3;
+  border-top: none;
+  padding: 5px 70px;
+}
+
+.rightAnswers {
+  width: 45%;
+  padding: 5px;
+}
+
+.rightAnswers .word {
+  color: #548c2f;
+  font-weight: 700;
+}
+
+.wrongAnswers {
+  width: 45%;
+  padding: 5px;
+}
+
+.wrongAnswers .word {
+  color: #723d46;
+  font-weight: 700;
 }

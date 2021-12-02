@@ -1,9 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Button from "../components/ui/Button/Button";
+import { useNavigate } from "react-router-dom";
+import { ADD_RIGHT_ANSWER, ADD_WRONG_ANSWER } from "../store/actions";
 
 const EnterTranslation = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [answer, setAnswer] = useState("");
   const dictionary = useSelector((state) => state.myvocab);
   const [randomWord, setRandomWord] = useState(
@@ -11,10 +15,42 @@ const EnterTranslation = () => {
   );
   const [showAnswer, setShowAnswer] = useState(0); // 0 - card with question, 1 - after answer and don't know
   const [isTrue, setIsTrue] = useState(0); // 0 - false, 1 - true
+  const [counter, setCounter] = useState(0); // count number of attempts
+  // const [result, setResult] = useState(0);
+  const currentGame = useSelector((state) => state.currentGame);
+
+  const onAddRightAnswer = (word, translation) => {
+    dispatch({
+      type: ADD_RIGHT_ANSWER,
+      payload: [word, translation],
+    });
+  };
+
+  const onAddWrongAnswer = (word, translation) => {
+    dispatch({
+      type: ADD_WRONG_ANSWER,
+      payload: [word, translation],
+    });
+  };
 
   const onHandleChange = (event) => {
     event.preventDefault();
     setAnswer(event.target.value);
+  };
+
+  const onClickNext = (word, translation) => {
+    if (counter < 10) {
+      setCounter(counter + 1);
+      if (isTrue) {
+        // setResult(result + 1);
+        onAddRightAnswer(word, translation);
+      } else {
+        onAddWrongAnswer(word, translation);
+      }
+    } else {
+      setCounter(0);
+      navigate("/onegamestat");
+    }
   };
 
   const getRandomWord = () => {
@@ -83,6 +119,7 @@ const EnterTranslation = () => {
           type="button"
           title="Next word"
           onButtonClick={() => {
+            onClickNext(randomWord[0], randomWord[2]);
             getRandomWord();
             setShowAnswer(0);
             setAnswer("");
@@ -94,7 +131,6 @@ const EnterTranslation = () => {
   };
 
   const renderCard = () => {
-    console.log(isTrue, showAnswer, randomWord);
     return showAnswer === 0 ? (
       questionCard()
     ) : showAnswer === 1 ? (

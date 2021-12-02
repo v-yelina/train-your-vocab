@@ -5,6 +5,7 @@ import CardsGame from "../../pages/CardsGame";
 import EnterTranslation from "../../pages/EnterTranslation";
 import Login from "../../pages/Login";
 import Registration from "../../pages/Registration";
+import OneGameStatistic from "../../pages/OneGameStatistic";
 
 const SwitchPages = () => {
   return (
@@ -14,6 +15,7 @@ const SwitchPages = () => {
       <Route path="/enter" element={<EnterTranslation />} />
       <Route path="/login" element={<Login />} />
       <Route path="/registration" element={<Registration />} />
+      <Route path="/onegamestat" element={<OneGameStatistic />} />
     </Routes>
   );
 };

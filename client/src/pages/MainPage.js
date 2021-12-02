@@ -7,7 +7,7 @@ const MainPage = () => {
 
   return (
     <div>
-      <article class="appIntroduction">
+      <article className="appIntroduction">
         <img
           src="https://image.freepik.com/free-vector/students-learning-foreign-language-with-vocabulary_74855-11070.jpg"
           alt="Words learning"
