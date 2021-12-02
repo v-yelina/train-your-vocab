@@ -54,8 +54,8 @@ code {
 .appIntroduction {
   position: relative;
   background-color: white;
-  width: 30%;
-  margin: 15vh 25% 10vh 35%;
+  width: 50%;
+  margin: 150px 30px 20px 550px;
   padding: 8% 5% 1% 15%;
 }
 
@@ -195,4 +195,18 @@ code {
 .wrongAnswers .word {
   color: #723d46;
   font-weight: 700;
+}
+
+/* Card Game results page */
+.resultsContainer {
+  background-color: white;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.cardGameResults {
+  border: 1px solid #d1c1b3;
+  padding: 20px;
 }

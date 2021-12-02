@@ -6,6 +6,9 @@ import {
   ADD_WRONG_ANSWER,
   ADD_RIGHT_ANSWER,
   EMPTY_CURRENT_GAME,
+  ADD_WORD_IN_VOCAB,
+  CLEAR_NEW_WORDS,
+  ADD_NEW_WORD,
 } from "./actions";
 import { myvocab } from "../myvocab";
 
@@ -31,6 +34,8 @@ const initialState = {
   },
   myvocab: [...myvocab],
   currentGame: emptyCurrentGame,
+  uservocab: [],
+  newWords: 0,
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -87,6 +92,24 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         currentGame: EMPTY_CURRENT_GAME,
+      };
+
+    case ADD_WORD_IN_VOCAB:
+      return {
+        ...state,
+        uservocab: [...state.uservocab, payload],
+      };
+
+    case ADD_NEW_WORD:
+      return {
+        ...state,
+        newWords: state.newWords + 1,
+      };
+
+    case CLEAR_NEW_WORDS:
+      return {
+        ...state,
+        newWords: 0,
       };
 
     default:

@@ -16,7 +16,7 @@ const EnterTranslation = () => {
   const [showAnswer, setShowAnswer] = useState(0); // 0 - card with question, 1 - after answer and don't know
   const [isTrue, setIsTrue] = useState(0); // 0 - false, 1 - true
   const [counter, setCounter] = useState(0); // count number of attempts
-  // const [result, setResult] = useState(0);
+
   const currentGame = useSelector((state) => state.currentGame);
 
   const onAddRightAnswer = (word, translation) => {

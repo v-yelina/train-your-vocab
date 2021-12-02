@@ -1,17 +1,43 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Button from "../components/ui/Button/Button";
+import { ADD_NEW_WORD, ADD_WORD_IN_VOCAB } from "../store/actions";
+import { useNavigate } from "react-router-dom";
 
 const CardsGame = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const dictionary = useSelector((state) => state.myvocab);
   const [translation, setTranslation] = useState(false);
   const [randomWord, setRandomWord] = useState(
     dictionary[Math.floor(Math.random() * dictionary.length)]
   );
+  const [counter, setCounter] = useState(0); // count number of attempts
 
-  const onClickButton = (e) => {
-    e.preventDefault();
+  const userId = 1;
+
+  const add_word_in_vocab = (userId, word, translation) => {
+    dispatch({
+      type: ADD_WORD_IN_VOCAB,
+      payload: [userId, word, translation],
+    });
+  };
+
+  const add_new_word = () => {
+    dispatch({
+      type: ADD_NEW_WORD,
+    });
+  };
+
+  const isGameFinished = () => {
+    if (counter < 10) {
+      setCounter(counter + 1);
+    } else {
+      setCounter(0);
+      navigate("/cardgameresults");
+    }
   };
 
   const getRandomWord = () => {
@@ -24,7 +50,6 @@ const CardsGame = () => {
   const flip = () => {
     const element = document.getElementsByClassName("cardGame")[0];
     if (translation) {
-      getRandomWord();
       element.style.transform = "rotateY(0deg)";
     } else {
       element.style.transform = "rotateY(360deg)";
@@ -59,7 +84,8 @@ const CardsGame = () => {
           type="button"
           title="Already know"
           onButtonClick={() => {
-            onClickButton();
+            getRandomWord();
+            isGameFinished();
           }}
           className="btn-green"
         />
@@ -67,7 +93,10 @@ const CardsGame = () => {
           type="button"
           title="Learn"
           onButtonClick={() => {
-            onClickButton();
+            add_word_in_vocab(userId, randomWord[0], randomWord[2]);
+            add_new_word();
+            getRandomWord();
+            isGameFinished();
           }}
           className="btn-beige"
         />
