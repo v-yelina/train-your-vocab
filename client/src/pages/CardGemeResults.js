@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const CardGameResults = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const newWords = useSelector((state) => state.newWords);
+  const newWords = useSelector((state) => state.games.newWords);
 
   const clear_new_words = () => {
     dispatch({

@@ -1,15 +1,18 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "../components/ui/Button/Button";
 import { useNavigate } from "react-router-dom";
-import { ADD_RIGHT_ANSWER, ADD_WRONG_ANSWER } from "../store/actions";
+import {
+  ADD_RIGHT_ANSWER,
+  ADD_WRONG_ANSWER,
+  EMPTY_CURRENT_GAME,
+} from "../store/actions";
 
 const EnterTranslation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [answer, setAnswer] = useState("");
-  const dictionary = useSelector((state) => state.myvocab);
+  const dictionary = useSelector((state) => state.games.myvocab);
   const [randomWord, setRandomWord] = useState(
     dictionary[Math.floor(Math.random() * dictionary.length)]
   );
@@ -17,7 +20,11 @@ const EnterTranslation = () => {
   const [isTrue, setIsTrue] = useState(0); // 0 - false, 1 - true
   const [counter, setCounter] = useState(0); // count number of attempts
 
-  const currentGame = useSelector((state) => state.currentGame);
+  useEffect(() => {
+    dispatch({
+      type: EMPTY_CURRENT_GAME,
+    });
+  }, []);
 
   const onAddRightAnswer = (word, translation) => {
     dispatch({
@@ -65,6 +72,8 @@ const EnterTranslation = () => {
           src="https://image.freepik.com/free-vector/question-mark-sign-brush-stroke-trash-style-typography-vector_53876-140880.jpg"
           alt="Word"
         />
+
+        {/* Use Field component!!!!!!!!! */}
         <input
           type="text"
           name="answer"
@@ -119,6 +128,8 @@ const EnterTranslation = () => {
           type="button"
           title="Next word"
           onButtonClick={() => {
+            // !!!!!!!!!!!!
+            // should be one function
             onClickNext(randomWord[0], randomWord[2]);
             getRandomWord();
             setShowAnswer(0);

@@ -9,7 +9,7 @@ const CardsGame = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const dictionary = useSelector((state) => state.myvocab);
+  const dictionary = useSelector((state) => state.games.myvocab);
   const [translation, setTranslation] = useState(false);
   const [randomWord, setRandomWord] = useState(
     dictionary[Math.floor(Math.random() * dictionary.length)]

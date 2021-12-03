@@ -1,23 +1,13 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import CircleProgressBar from "../components/parts/CircleProgressBar/CircleProgressBar";
-import { EMPTY_CURRENT_GAME } from "../store/actions";
 
 const OneGameStatistic = () => {
-  const dispatch = useDispatch();
-  const currentGame = useSelector((state) => state.currentGame);
+  const currentGame = useSelector((state) => state.games.currentGame);
   const wrongAnswers = [...currentGame.wrongAnswers];
   const rightAnswers = [...currentGame.rightAnswers];
   const percentage =
     (rightAnswers.length / (wrongAnswers.length + rightAnswers.length)) * 100;
-
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  const cleanCurrentGame = () => {
-    dispatch({
-      type: EMPTY_CURRENT_GAME,
-    });
-  };
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   const renderRightAnswers = () => {
     if (!rightAnswers.length) return;

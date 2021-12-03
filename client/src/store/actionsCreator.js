@@ -34,6 +34,37 @@ export const doLogin = (login) => {
   };
 };
 
+export const doRegistration = (newUser) => {
+  return async (dispatch) => {
+    try {
+      const response = await fetch(`${URL}auth/signup`, {
+        method: "POST",
+        body: JSON.stringify(newUser),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.status === 200) {
+        dispatch(doLogin({ email: newUser.email, password: newUser.password }));
+        return true;
+      }
+      const data = await response.json();
+      dispatch({ type: EMPTY_AUTH });
+      localStorage.removeItem("authInfo");
+      useError(data.message, dispatch);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+};
+
+export const doLogout = () => {
+  return (dispatch) => {
+    localStorage.removeItem("authInfo");
+    dispatch({ type: EMPTY_AUTH });
+  };
+};
+
 export const authInReload = () => {
   return async (dispatch) => {
     const authInfo = JSON.parse(localStorage.getItem("authInfo"));
