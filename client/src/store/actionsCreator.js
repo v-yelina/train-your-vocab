@@ -1,4 +1,10 @@
-import { SET_AUTH, SET_ERROR, EMPTY_AUTH, CLEAR_ERROR } from "./actions";
+import {
+  SET_AUTH,
+  SET_ERROR,
+  EMPTY_AUTH,
+  CLEAR_ERROR,
+  GET_RANDOM_WORD,
+} from "./actions";
 const URL = "http://localhost:8080/api/v1/";
 
 export const doLogin = (login) => {
@@ -69,6 +75,16 @@ export const authInReload = () => {
   return async (dispatch) => {
     const authInfo = JSON.parse(localStorage.getItem("authInfo"));
     dispatch(setAuth(authInfo));
+  };
+};
+
+export const getRandomWord = (vocab) => {
+  return (dispatch) => {
+    let newRandom = vocab[Math.floor(Math.random() * vocab.length)];
+    dispatch({
+      type: GET_RANDOM_WORD,
+      payload: newRandom,
+    });
   };
 };
 

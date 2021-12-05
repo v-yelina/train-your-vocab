@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Button from "../../ui/Button/Button";
 import { useNavigate } from "react-router-dom";
+import Button from "../../ui/Button/Button";
 import {
   DONT_SHOW_ANSWER,
-  GET_RANDOM_WORD,
   EMPTY_ANSWER,
   ADD_RIGHT_ANSWER,
   ADD_WRONG_ANSWER,
 } from "../../../store/actions";
+import { getRandomWord } from "../../../store/actionsCreator";
 
 const AnswerCardEnterTranslation = () => {
   const dispatch = useDispatch();
@@ -48,14 +48,6 @@ const AnswerCardEnterTranslation = () => {
     });
   };
 
-  const getRandomWord = () => {
-    let newRandom = vocab[Math.floor(Math.random() * vocab.length)];
-    dispatch({
-      type: GET_RANDOM_WORD,
-      payload: newRandom,
-    });
-  };
-
   const onClickNext = (word, translation) => {
     if (counter < 10) {
       setCounter(counter + 1);
@@ -70,7 +62,7 @@ const AnswerCardEnterTranslation = () => {
       setCounter(0);
       navigate("/onegamestat");
     }
-    getRandomWord();
+    dispatch(getRandomWord(vocab));
     dontShowAnswer();
     emptyAnswer();
   };

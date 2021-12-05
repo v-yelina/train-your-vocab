@@ -1,19 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/ui/Button/Button";
 import { ADD_NEW_WORD, ADD_WORD_IN_VOCAB } from "../store/actions";
-import { useNavigate } from "react-router-dom";
+import { getRandomWord } from "../store/actionsCreator";
 
 const CardsGame = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const dictionary = useSelector((state) => state.games.myvocab);
+  const vocab = useSelector((state) => state.games.myvocab);
   const [translation, setTranslation] = useState(false);
-  const [randomWord, setRandomWord] = useState(
-    dictionary[Math.floor(Math.random() * dictionary.length)]
-  );
+  const randomWord = useSelector((state) => state.games.randomWord);
   const [counter, setCounter] = useState(0); // count number of attempts
 
   const userId = 1;
@@ -40,10 +39,6 @@ const CardsGame = () => {
     }
   };
 
-  const getRandomWord = () => {
-    setRandomWord(dictionary[Math.floor(Math.random() * dictionary.length)]);
-  };
-
   const picUrl =
     "https://image.freepik.com/free-vector/hand-painted-sun_23-2147510442.jpg";
 
@@ -59,6 +54,21 @@ const CardsGame = () => {
     flip();
     translation ? setTranslation(false) : setTranslation(true);
   };
+
+  const onClickAlreadyKnow = () => {
+    dispatch(getRandomWord(vocab));
+    isGameFinished();
+    setTranslation(false);
+  };
+
+  const onClickLearn = () => {
+    add_word_in_vocab(userId, randomWord[0], randomWord[2]);
+    add_new_word();
+    dispatch(getRandomWord(vocab));
+    isGameFinished();
+    setTranslation(false);
+  };
+
   const renderCardContent = () => {
     return translation ? (
       <div className="cardContent" onClick={() => onClickHandler()}>
@@ -84,8 +94,7 @@ const CardsGame = () => {
           type="button"
           title="Already know"
           onButtonClick={() => {
-            getRandomWord();
-            isGameFinished();
+            onClickAlreadyKnow();
           }}
           className="btn-green"
         />
@@ -93,10 +102,7 @@ const CardsGame = () => {
           type="button"
           title="Learn"
           onButtonClick={() => {
-            add_word_in_vocab(userId, randomWord[0], randomWord[2]);
-            add_new_word();
-            getRandomWord();
-            isGameFinished();
+            onClickLearn();
           }}
           className="btn-beige"
         />
