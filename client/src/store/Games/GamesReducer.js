@@ -5,7 +5,7 @@ import {
   ADD_WORD_IN_VOCAB,
   CLEAR_NEW_WORDS,
   ADD_NEW_WORD,
-  NEW_RANDOM_WORD,
+  GET_RANDOM_WORD,
 } from "../actions";
 import { myvocab } from "../../myvocab";
 
@@ -24,7 +24,7 @@ const initialState = {
 
 export const GamesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case NEW_RANDOM_WORD:
+    case GET_RANDOM_WORD:
       return {
         ...state,
         randomWord: payload,

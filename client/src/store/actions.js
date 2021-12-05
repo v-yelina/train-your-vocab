@@ -13,12 +13,11 @@ export const EMPTY_CURRENT_GAME = "EMPTY_CURRENT_GAME";
 export const ADD_WORD_IN_VOCAB = "ADD_WORD_IN_VOCAB";
 export const CLEAR_NEW_WORDS = "CLEAR_NEW_WORDS";
 export const ADD_NEW_WORD = "ADD_NEW_WORD";
+export const GET_RANDOM_WORD = "GET_RANDOM_WORD";
 
 // Enter Translation game reducer
-export const NEW_RANDOM_WORD = "NEW_RANDOM_WORD";
 export const SET_NEW_ANSWER = "SET_NEW_ANSWER";
 export const EMPTY_ANSWER = "EMPTY_ANSWER";
-export const GET_RANDOM_WORD = "GET_RANDOM_WORD";
 export const SHOW_ANSWER = "SHOW_ANSWER";
 export const DONT_SHOW_ANSWER = "DONT_SHOW_ANSWER";
 export const SET_TRUE = "SET_TRUE";

@@ -49,9 +49,10 @@ const AnswerCardEnterTranslation = () => {
   };
 
   const getRandomWord = () => {
+    let newRandom = vocab[Math.floor(Math.random() * vocab.length)];
     dispatch({
       type: GET_RANDOM_WORD,
-      payload: vocab[Math.floor(Math.random() * vocab.length)],
+      payload: newRandom,
     });
   };
 
