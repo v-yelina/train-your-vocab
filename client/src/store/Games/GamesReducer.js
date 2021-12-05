@@ -5,6 +5,7 @@ import {
   ADD_WORD_IN_VOCAB,
   CLEAR_NEW_WORDS,
   ADD_NEW_WORD,
+  NEW_RANDOM_WORD,
 } from "../actions";
 import { myvocab } from "../../myvocab";
 
@@ -18,11 +19,19 @@ const initialState = {
   currentGame: emptyCurrentGame,
   uservocab: [],
   newWords: 0,
+  randomWord: myvocab[Math.floor(Math.random() * myvocab.length)],
 };
 
 export const GamesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case NEW_RANDOM_WORD:
+      return {
+        ...state,
+        randomWord: payload,
+      };
+
     case ADD_RIGHT_ANSWER:
+      console.log(state);
       return {
         ...state,
         currentGame: {
@@ -32,6 +41,7 @@ export const GamesReducer = (state = initialState, { type, payload }) => {
       };
 
     case ADD_WRONG_ANSWER:
+      console.log(state);
       return {
         ...state,
         currentGame: {
@@ -43,7 +53,7 @@ export const GamesReducer = (state = initialState, { type, payload }) => {
     case EMPTY_CURRENT_GAME:
       return {
         ...state,
-        currentGame: EMPTY_CURRENT_GAME,
+        currentGame: emptyCurrentGame,
       };
 
     case ADD_WORD_IN_VOCAB:
