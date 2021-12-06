@@ -53,11 +53,8 @@ const Navbar = () => {
         <NavLink className="navlink" to="/">
           Main Page
         </NavLink>
-        <NavLink className="navlink" to="/cards">
-          Cards Game
-        </NavLink>
-        <NavLink className="navlink" to="/enter">
-          Enter translation
+        <NavLink className="navlink" to="/gameslist">
+          All Games
         </NavLink>
       </nav>
       <nav className="nav">

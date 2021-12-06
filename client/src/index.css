@@ -215,3 +215,29 @@ code {
   border: 1px solid #d1c1b3;
   padding: 20px;
 }
+
+/* Games List page styles */
+
+.gamesListPage {
+  width: 90%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 40px;
+}
+.gamesListPage h2 {
+  display: block;
+  border: 1px solid #d1c1b3;
+  border-bottom: none;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.gamesList {
+  border: 1px solid #d1c1b3;
+  padding: 20px;
+  border-top: none;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, 300px);
+}
