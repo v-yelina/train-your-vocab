@@ -80,6 +80,12 @@ code {
   margin-bottom: 15px;
 }
 
+/* Games pages styles */
+.gamePageContent {
+  display: flex;
+  flex-direction: row;
+}
+
 /* Styles for Card Game */
 
 .cardGame {

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/ui/Button/Button";
 import { ADD_NEW_WORD, ADD_WORD_IN_VOCAB } from "../store/actions";
 import { getRandomWord } from "../store/actionsCreator";
+import SideNavbar from "../components/parts/SideNavbar/SideNavbar";
 
 const CardsGame = () => {
   const dispatch = useDispatch();
@@ -87,25 +88,28 @@ const CardsGame = () => {
   };
 
   return (
-    <article className="card cardGame">
-      {renderCardContent()}
-      <div className="buttons">
-        <Button
-          type="button"
-          title="Already know"
-          onButtonClick={() => {
-            onClickAlreadyKnow();
-          }}
-          className="btn-green"
-        />
-        <Button
-          type="button"
-          title="Learn"
-          onButtonClick={() => {
-            onClickLearn();
-          }}
-          className="btn-beige"
-        />
+    <article className="gamePageContent">
+      <SideNavbar />
+      <div className="card cardGame">
+        {renderCardContent()}
+        <div className="buttons">
+          <Button
+            type="button"
+            title="Already know"
+            onButtonClick={() => {
+              onClickAlreadyKnow();
+            }}
+            className="btn-green"
+          />
+          <Button
+            type="button"
+            title="Learn"
+            onButtonClick={() => {
+              onClickLearn();
+            }}
+            className="btn-beige"
+          />
+        </div>
       </div>
     </article>
   );

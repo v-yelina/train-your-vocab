@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { EMPTY_CURRENT_GAME } from "../store/actions";
 import QuestionCardEnterTranslation from "../components/parts/GamesCards/QuestionCardEnterTranslation";
 import AnswerCardEnterTranslation from "../components/parts/GamesCards/AnswerCardEnterTranslation";
+import SideNavbar from "../components/parts/SideNavbar/SideNavbar";
 
 const EnterTranslation = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,11 @@ const EnterTranslation = () => {
     );
   };
 
-  return <div>{renderCard()}</div>;
+  return (
+    <article className="gamePageContent">
+      <SideNavbar />
+      {renderCard()}
+    </article>
+  );
 };
 export default EnterTranslation;
