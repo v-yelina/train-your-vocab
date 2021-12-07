@@ -1,9 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import GameCard from "../components/parts/GamesListCard/GameCard";
 
 const GamesList = () => {
   const navigate = useNavigate();
+  const isAuth = useSelector((state) => state.auth.auth.isAuth);
+
   const games = [
     [
       "Cards Game",
@@ -39,11 +42,15 @@ const GamesList = () => {
     ));
   };
 
-  return (
+  return isAuth ? (
     <section className="gamesListPage">
       <h2>Choose game</h2>
       <div className="gamesList">{renderGames()}</div>
     </section>
+  ) : (
+    <div className="resultsContainer">
+      <h2>This content is only for Logged In Users</h2>
+    </div>
   );
 };
 

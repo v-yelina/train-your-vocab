@@ -8,6 +8,7 @@ const OneGameStatistic = () => {
   const rightAnswers = [...currentGame.rightAnswers];
   const percentage =
     (rightAnswers.length / (wrongAnswers.length + rightAnswers.length)) * 100;
+  const isAuth = useSelector((state) => state.auth.auth.isAuth);
 
   const renderRightAnswers = () => {
     if (!rightAnswers.length) return;
@@ -42,7 +43,7 @@ const OneGameStatistic = () => {
     );
   };
 
-  return (
+  return isAuth ? (
     <article className="oneGameStat">
       {renderResult()}
       <div className="answerList">
@@ -57,6 +58,10 @@ const OneGameStatistic = () => {
         </div>
       </div>
     </article>
+  ) : (
+    <div className="resultsContainer">
+      <h2>This content is only for Logged In Users</h2>
+    </div>
   );
 };
 

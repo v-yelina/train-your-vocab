@@ -10,7 +10,7 @@ import SideNavbar from "../components/parts/SideNavbar/SideNavbar";
 const CardsGame = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const isAuth = useSelector((state) => state.auth.auth.isAuth);
   const vocab = useSelector((state) => state.games.myvocab);
   const [translation, setTranslation] = useState(false);
   const randomWord = useSelector((state) => state.games.randomWord);
@@ -87,7 +87,7 @@ const CardsGame = () => {
     );
   };
 
-  return (
+  return isAuth ? (
     <article className="gamePageContent">
       <SideNavbar />
       <div className="card cardGame">
@@ -112,6 +112,10 @@ const CardsGame = () => {
         </div>
       </div>
     </article>
+  ) : (
+    <div className="resultsContainer">
+      <h2>This content is only for Logged In Users</h2>
+    </div>
   );
 };
 

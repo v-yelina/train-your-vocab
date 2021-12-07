@@ -1,9 +1,43 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/ui/Button/Button";
 
 const MainPage = () => {
   const navigate = useNavigate();
+  const isAuth = useSelector((state) => state.auth.auth.isAuth);
+
+  const renderButtons = () => {
+    return isAuth ? (
+      <Button
+        type="button"
+        title="Play games"
+        onButtonClick={() => {
+          navigate("/gameslist");
+        }}
+        className="btn-login"
+      />
+    ) : (
+      <div className="buttons">
+        <Button
+          type="button"
+          title="Login"
+          onButtonClick={() => {
+            navigate("/login");
+          }}
+          className="btn-login"
+        />
+        <Button
+          type="button"
+          title="Create account"
+          onButtonClick={() => {
+            navigate("/registration");
+          }}
+          className="btn-beige"
+        />
+      </div>
+    );
+  };
 
   return (
     <div>
@@ -22,24 +56,7 @@ const MainPage = () => {
           Images from &nbsp;
           <a href="https://www.freepik.com/">Freepik</a>
         </span>
-        <div className="buttons">
-          <Button
-            type="button"
-            title="Login"
-            onButtonClick={() => {
-              navigate("/login");
-            }}
-            className="btn-login"
-          />
-          <Button
-            type="button"
-            title="Create account"
-            onButtonClick={() => {
-              navigate("/registration");
-            }}
-            className="btn-beige"
-          />
-        </div>
+        {renderButtons()}
       </article>
     </div>
   );

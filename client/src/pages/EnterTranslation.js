@@ -8,6 +8,7 @@ import SideNavbar from "../components/parts/SideNavbar/SideNavbar";
 const EnterTranslation = () => {
   const dispatch = useDispatch();
   const showAnswer = useSelector((state) => state.enterTranslation.showAnswer);
+  const isAuth = useSelector((state) => state.auth.auth.isAuth);
 
   useEffect(() => {
     dispatch({
@@ -25,11 +26,15 @@ const EnterTranslation = () => {
     );
   };
 
-  return (
+  return isAuth ? (
     <article className="gamePageContent">
       <SideNavbar />
       {renderCard()}
     </article>
+  ) : (
+    <div className="resultsContainer">
+      <h2>This content is only for Logged In Users</h2>
+    </div>
   );
 };
 export default EnterTranslation;

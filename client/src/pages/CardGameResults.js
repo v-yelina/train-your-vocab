@@ -8,6 +8,7 @@ const CardGameResults = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const newWords = useSelector((state) => state.games.newWords);
+  const isAuth = useSelector((state) => state.auth.auth.isAuth);
 
   const clear_new_words = () => {
     dispatch({
@@ -15,7 +16,7 @@ const CardGameResults = () => {
     });
   };
 
-  return (
+  return isAuth ? (
     <div className="resultsContainer">
       <div className="cardGameResults">
         <h3>Hurra!</h3>
@@ -44,6 +45,10 @@ const CardGameResults = () => {
           />
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="resultsContainer">
+      <h2>This content is only for Logged In Users</h2>
     </div>
   );
 };
