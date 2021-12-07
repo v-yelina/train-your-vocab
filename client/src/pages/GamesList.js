@@ -17,6 +17,12 @@ const GamesList = () => {
       "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "/enter",
     ],
+    [
+      "Choose one",
+      "https://as2.ftcdn.net/v2/jpg/04/09/90/47/1000_F_409904799_U9mugFVt463EwxxwW3iYLqEnINgpKqLf.jpg",
+      "Elementum nisi quis eleifend quam adipiscing. Fermentum posuere urna nec tincidunt praesent. Convallis tellus id interdum velit laoreet id. Porta lorem mollis aliquam ut porttitor. Risus nullam eget felis eget.",
+      "/chooseone",
+    ],
   ];
 
   const renderGames = () => {
@@ -35,7 +41,7 @@ const GamesList = () => {
 
   return (
     <section className="gamesListPage">
-      <h2>Games List</h2>
+      <h2>Choose game</h2>
       <div className="gamesList">{renderGames()}</div>
     </section>
   );

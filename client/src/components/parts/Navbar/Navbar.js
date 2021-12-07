@@ -18,55 +18,41 @@ const Navbar = () => {
   const renderLinksInAuth = () => {
     return isAuth ? (
       <>
-        <li className="nav__item">
-          <NavLink to="/users" className="nav__link">
-            Users
+        <nav className="nav">
+          <NavLink className="navlink" to="/">
+            Main Page
           </NavLink>
-        </li>
-        <li className="nav__item">
-          <Button
-            className="nav__link"
-            onButtonClick={logoutClickHandler}
-            title="LogOut"
-          />
-        </li>
+          <NavLink className="navlink" to="/gameslist">
+            All Games
+          </NavLink>
+        </nav>
+        <nav className="nav">
+          <NavLink className="navlink" to="/login">
+            Login
+          </NavLink>
+          <NavLink className="navlink" to="/registration">
+            Registration
+          </NavLink>
+        </nav>
       </>
     ) : (
       <>
-        <li className="nav__item">
-          <NavLink to="/login" className="nav__link">
-            Login
+        <nav className="nav">
+          <NavLink className="navlink" to="/">
+            Main Page
           </NavLink>
-        </li>
-        <li className="nav__item">
-          <NavLink to="/registration" className="nav__link">
-            Registration
+          <NavLink className="navlink" to="/gameslist">
+            All Games
           </NavLink>
-        </li>
+        </nav>
+        <nav className="nav">
+          <Profile />
+        </nav>
       </>
     );
   };
 
-  return (
-    <div className="navigation">
-      <nav className="nav">
-        <NavLink className="navlink" to="/">
-          Main Page
-        </NavLink>
-        <NavLink className="navlink" to="/gameslist">
-          All Games
-        </NavLink>
-      </nav>
-      <nav className="nav">
-        <NavLink className="navlink" to="/login">
-          Login
-        </NavLink>
-        <NavLink className="navlink" to="/registration">
-          Registration
-        </NavLink>
-      </nav>
-    </div>
-  );
+  return <div className="navigation"></div>;
 };
 
 export default Navbar;

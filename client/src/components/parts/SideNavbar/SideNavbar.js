@@ -12,6 +12,9 @@ const SideNavbar = () => {
         <NavLink className="navlink" to="/enter">
           Enter translation
         </NavLink>
+        <NavLink className="navlink" to="/chooseone">
+          Choose One
+        </NavLink>
       </nav>
     </div>
   );

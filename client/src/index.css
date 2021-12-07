@@ -247,3 +247,43 @@ code {
   gap: 15px;
   grid-template-columns: repeat(auto-fill, 300px);
 }
+
+/* Choose one game styles */
+
+.chooseOneGame .buttons {
+  margin: 10px;
+}
+
+.chooseOneGame img {
+  width: 60%;
+}
+
+.answersRadio {
+  width: 90%;
+  padding: 10px;
+}
+
+.answersRadio .field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid #d1c1b3;
+}
+
+.answersRadio .field:hover {
+  background-color: #d1c1b3;
+  color: white;
+}
+
+.answersRadio .field label {
+  display: block;
+  width: max-content;
+  padding: 5px;
+  line-height: 14px;
+}
+
+.answersRadio .field input {
+  width: max-content;
+}

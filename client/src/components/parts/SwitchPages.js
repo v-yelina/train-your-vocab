@@ -8,6 +8,7 @@ import Registration from "../../pages/Registration";
 import OneGameStatistic from "../../pages/OneGameStatistic";
 import CardGameResults from "../../pages/CardGemeResults";
 import GamesList from "../../pages/GamesList";
+import ChooseOne from "../../pages/ChooseOne";
 
 const SwitchPages = () => {
   return (
@@ -20,6 +21,7 @@ const SwitchPages = () => {
       <Route path="/onegamestat" element={<OneGameStatistic />} />
       <Route path="/cardgameresults" element={<CardGameResults />} />
       <Route path="/gameslist" element={<GamesList />} />
+      <Route path="/chooseone" element={<ChooseOne />} />
     </Routes>
   );
 };

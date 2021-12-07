@@ -13,6 +13,8 @@ const Field = (props) => {
         className="field__input"
         value={props.value}
         onChange={props.onFieldChange}
+        name={props.name}
+        checked={props.checked}
       />
     </div>
   );
