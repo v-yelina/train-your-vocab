@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import GameCard from "../components/parts/GamesListCard/GameCard";
+import UnauthorizedError from "../components/parts/UnauthorizedError/UnauthorizedError";
 
 const GamesList = () => {
   const navigate = useNavigate();
@@ -54,9 +55,7 @@ const GamesList = () => {
       <div className="gamesList">{renderGames()}</div>
     </section>
   ) : (
-    <div className="resultsContainer">
-      <h2>This content is only for Logged In Users</h2>
-    </div>
+    <UnauthorizedError />
   );
 };
 

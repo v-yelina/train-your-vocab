@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Button from "../components/ui/Button/Button";
 import { CLEAR_NEW_WORDS } from "../store/actions";
 import { useNavigate } from "react-router-dom";
+import UnauthorizedError from "../components/parts/UnauthorizedError/UnauthorizedError";
 
 const CardGameResults = () => {
   const dispatch = useDispatch();
@@ -47,9 +48,7 @@ const CardGameResults = () => {
       </div>
     </div>
   ) : (
-    <div className="resultsContainer">
-      <h2>This content is only for Logged In Users</h2>
-    </div>
+    <UnauthorizedError />
   );
 };
 

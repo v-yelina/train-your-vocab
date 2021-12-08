@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import CircleProgressBar from "../components/parts/CircleProgressBar/CircleProgressBar";
+import UnauthorizedError from "../components/parts/UnauthorizedError/UnauthorizedError";
 
 const OneGameStatistic = () => {
   const currentGame = useSelector((state) => state.games.currentGame);
@@ -59,9 +60,7 @@ const OneGameStatistic = () => {
       </div>
     </article>
   ) : (
-    <div className="resultsContainer">
-      <h2>This content is only for Logged In Users</h2>
-    </div>
+    <UnauthorizedError />
   );
 };
 

@@ -4,6 +4,7 @@ import { EMPTY_CURRENT_GAME } from "../../store/actions";
 import QuestionCardBuildWord from "../../components/parts/GamesCards/QuestionCardBuildWord";
 import AnswerCardEnterTranslation from "../../components/parts/GamesCards/AnswerCardEnterTranslation";
 import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
+import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
 
 const BuildWord = () => {
   const dispatch = useDispatch();
@@ -32,9 +33,7 @@ const BuildWord = () => {
       {renderCard()}
     </article>
   ) : (
-    <div className="resultsContainer">
-      <h2>This content is only for Logged In Users</h2>
-    </div>
+    <UnauthorizedError />
   );
 };
 

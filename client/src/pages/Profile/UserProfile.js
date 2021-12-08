@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
 
 const UserProfile = () => {
   const isAuth = useSelector((state) => state.auth.auth.isAuth);
@@ -9,9 +10,7 @@ const UserProfile = () => {
       <h2>User Profile</h2>
     </section>
   ) : (
-    <div className="resultsContainer">
-      <h2>This content is only for Logged In Users</h2>
-    </div>
+    <UnauthorizedError />
   );
 };
 
