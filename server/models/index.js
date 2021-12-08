@@ -15,7 +15,6 @@ db.sequelize = sequelize;
 db.Sequelize = sequelize;
 
 db.user = require("./user.model")(sequelize, Sequelize);
-// db.dictionary = require("./dictionary.model")(sequelize, Sequelize);
-// !!!!!!
+db.dictionary = require("./dict.model")(sequelize, Sequelize);
 
 module.exports = db;
