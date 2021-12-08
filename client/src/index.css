@@ -80,6 +80,11 @@ code {
   margin-bottom: 15px;
 }
 
+/* .appIntroduction .btn-play {
+  margin: 0 auto;
+  width: 250px;
+} */
+
 /* Games pages styles */
 .gamePageContent {
   display: flex;

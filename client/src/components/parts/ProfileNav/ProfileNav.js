@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./ProfileNav.css";
 import { useDispatch } from "react-redux";
@@ -7,6 +7,11 @@ import Button from "../../ui/Button/Button";
 
 const ProfileNav = () => {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+
+  // useEffect(() => {
+  //   window.addEventListener("click", () => setIsOpen(false));
+  // }, []);
 
   const logoutClickHandler = (e) => {
     console.log("Logout");
@@ -14,21 +19,38 @@ const ProfileNav = () => {
     dispatch(doLogout());
   };
 
-  return (
-    <div className="navigation sideNavbar">
+  return isOpen ? (
+    <div className="navigation profileMenuNavbar">
       <nav className="nav">
-        <NavLink className="navlink" to="/cards">
-          Cards Game
+        <NavLink className="navlink" to="/userprofile">
+          My Profile
         </NavLink>
-        <NavLink to="/users" className="navlink">
+        <NavLink className="navlink" to="/userstatistic">
+          My Statistic
+        </NavLink>
+        <NavLink className="navlink" to="/userdict">
+          My Dictionary
+        </NavLink>
+        {/* <NavLink to="/users" className="navlink">
           Users
-        </NavLink>
+        </NavLink> */}
         <Button
           className="navlink btn-beige"
           onButtonClick={logoutClickHandler}
-          title="LogOut"
+          title="Logout"
         />
       </nav>
+    </div>
+  ) : (
+    <div className="navigation profileMenuNavbar">
+      <button
+        className="navlink"
+        onClick={() => {
+          setIsOpen(true);
+        }}
+      >
+        Show menu
+      </button>
     </div>
   );
 };

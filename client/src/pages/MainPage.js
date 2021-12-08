@@ -15,7 +15,7 @@ const MainPage = () => {
         onButtonClick={() => {
           navigate("/gameslist");
         }}
-        className="btn-login"
+        className="btn-login btn-play"
       />
     ) : (
       <div className="buttons">

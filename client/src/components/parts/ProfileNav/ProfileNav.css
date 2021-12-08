@@ -1,9 +1,11 @@
-.sideNavbar nav {
-  display: flex;
-  flex-direction: column;
-  height: max-content;
+.profileMenuNavbar nav {
+  margin: 0px;
+  padding: 0px;
 }
 
-.sideNavbar navlink {
-  width: 100%;
+.profileMenuNavbar .btn {
+  font-weight: 400;
+  text-transform: none;
+  font-size: 1rem;
+  margin: 0;
 }
