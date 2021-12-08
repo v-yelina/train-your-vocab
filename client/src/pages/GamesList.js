@@ -26,6 +26,12 @@ const GamesList = () => {
       "Elementum nisi quis eleifend quam adipiscing. Fermentum posuere urna nec tincidunt praesent. Convallis tellus id interdum velit laoreet id. Porta lorem mollis aliquam ut porttitor. Risus nullam eget felis eget.",
       "/chooseone",
     ],
+    [
+      "Build a Word",
+      "https://image.freepik.com/free-vector/product-brand-building-corporate-identity-design-studio-designers-flat-characters-teamwork-cooperation-collaboration-company-name-concept-illustration_335657-1722.jpg",
+      "Elementum deserunt mollit anim. Convallis tellus id interdum velit laoreet id. Porta lorem mollis aliquam ut porttitor. Risus nullam eget felis eget.",
+      "/buildword",
+    ],
   ];
 
   const renderGames = () => {

@@ -6,6 +6,8 @@ import {
   CLEAR_NEW_WORDS,
   ADD_NEW_WORD,
   GET_RANDOM_WORD,
+  ADD_COUNT,
+  CLEAR_COUNTER,
 } from "../actions";
 import { myvocab } from "../../myvocab";
 
@@ -15,6 +17,7 @@ const emptyCurrentGame = {
 };
 
 const initialState = {
+  counter: 0,
   myvocab: [...myvocab],
   currentGame: emptyCurrentGame,
   uservocab: [],
@@ -72,6 +75,18 @@ export const GamesReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         newWords: 0,
+      };
+
+    case ADD_COUNT:
+      return {
+        ...state,
+        counter: state.counter + 1,
+      };
+
+    case CLEAR_COUNTER:
+      return {
+        ...state,
+        counter: 0,
       };
 
     default:

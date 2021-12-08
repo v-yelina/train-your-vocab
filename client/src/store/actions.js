@@ -14,6 +14,8 @@ export const ADD_WORD_IN_VOCAB = "ADD_WORD_IN_VOCAB";
 export const CLEAR_NEW_WORDS = "CLEAR_NEW_WORDS";
 export const ADD_NEW_WORD = "ADD_NEW_WORD";
 export const GET_RANDOM_WORD = "GET_RANDOM_WORD";
+export const ADD_COUNT = "ADD_COUNT";
+export const CLEAR_COUNTER = "CLEAR_COUNTER";
 
 // Enter Translation game reducer
 export const SET_NEW_ANSWER = "SET_NEW_ANSWER";

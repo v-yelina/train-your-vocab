@@ -80,11 +80,6 @@ code {
   margin-bottom: 15px;
 }
 
-/* .appIntroduction .btn-play {
-  margin: 0 auto;
-  width: 250px;
-} */
-
 /* Games pages styles */
 .gamePageContent {
   display: flex;
@@ -291,4 +286,46 @@ code {
 
 .answersRadio .field input {
   width: max-content;
+}
+
+/* Build a Word game styles */
+.buildWordGame img {
+  width: 60%;
+}
+
+/* <div className="field">
+      <label className="field__label" htmlFor={props.id}>
+        {props.label}
+      </label>
+      <input
+        type={props.type}
+        id={props.id}
+        className="field__input" */
+
+.buildWordGame .field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buildWordGame .field__label {
+  width: 100%;
+}
+
+.buildWordGame .field__input {
+  width: 80%;
+  margin: 10px auto;
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+
+.lettersSet {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.lettersSet .btn {
+  padding: 10px;
+  margin: 0;
 }

@@ -7,6 +7,8 @@ import {
   EMPTY_ANSWER,
   ADD_RIGHT_ANSWER,
   ADD_WRONG_ANSWER,
+  ADD_COUNT,
+  CLEAR_COUNTER,
 } from "../../../store/actions";
 import { getRandomWord } from "../../../store/actionsCreator";
 
@@ -19,7 +21,7 @@ const AnswerCardEnterTranslation = () => {
   const answer = useSelector((state) => state.enterTranslation.answer);
   const vocab = useSelector((state) => state.games.myvocab);
 
-  const [counter, setCounter] = useState(0); // count number of attempts
+  const counter = useSelector((state) => state.games.counter); // count number of attempts
 
   const onAddRightAnswer = (word, translation) => {
     dispatch({
@@ -48,9 +50,21 @@ const AnswerCardEnterTranslation = () => {
     });
   };
 
+  const addCount = () => {
+    dispatch({
+      type: ADD_COUNT,
+    });
+  };
+
+  const clearCounter = () => {
+    dispatch({
+      type: CLEAR_COUNTER,
+    });
+  };
+
   const onClickNext = (word, translation) => {
     if (counter < 10) {
-      setCounter(counter + 1);
+      addCount();
       if (isTrue) {
         onAddRightAnswer(word, translation);
         emptyAnswer();
@@ -59,7 +73,7 @@ const AnswerCardEnterTranslation = () => {
         emptyAnswer();
       }
     } else {
-      setCounter(0);
+      clearCounter();
       navigate("/onegamestat");
     }
     dispatch(getRandomWord(vocab));

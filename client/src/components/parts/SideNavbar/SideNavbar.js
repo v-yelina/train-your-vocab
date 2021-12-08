@@ -15,6 +15,9 @@ const SideNavbar = () => {
         <NavLink className="navlink" to="/chooseone">
           Choose One
         </NavLink>
+        <NavLink className="navlink" to="/buildword">
+          Build a Word
+        </NavLink>
       </nav>
     </div>
   );
