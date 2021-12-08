@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { EMPTY_CURRENT_GAME } from "../../store/actions";
 import QuestionCardBuildWord from "../../components/parts/GamesCards/QuestionCardBuildWord";
-import AnswerCardEnterTranslation from "../../components/parts/GamesCards/AnswerCardEnterTranslation";
 import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
+import AnswerCard from "../../components/parts/GamesCards/AnswerCard";
 
 const BuildWord = () => {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ const BuildWord = () => {
     return showAnswer === 0 ? (
       <QuestionCardBuildWord />
     ) : showAnswer === 1 ? (
-      <AnswerCardEnterTranslation />
+      <AnswerCard />
     ) : (
       <div>There is nothing to display</div>
     );

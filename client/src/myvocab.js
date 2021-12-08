@@ -120,7 +120,6 @@ export const myvocab = [
   ["yellow", "'jeləu", "желтый"],
   ["base", "beis", "основа, база"],
   ["burst", "bə:st", "взрыв"],
-  ["Christ", "kraist", "Христос"],
   ["club", "klʌb", "клуб"],
   ["colonel", "'kə:nl", "полковник"],
   ["creature", "'kri:ʧə", "тварь, существо"],

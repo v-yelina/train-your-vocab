@@ -161,6 +161,10 @@ code {
   margin: 20px auto 10px;
 }
 
+.login-window .form__input {
+  padding: 10px;
+}
+
 /* One Game stats styles */
 .oneGameStat {
   background-color: white;
@@ -246,12 +250,13 @@ code {
   display: grid;
   gap: 15px;
   grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-rows: max-content;
 }
 
 /* Choose one game styles */
 
 .chooseOneGame .buttons {
-  margin: 10px;
+  margin: 0px;
 }
 
 .chooseOneGame img {
@@ -293,15 +298,6 @@ code {
   width: 60%;
 }
 
-/* <div className="field">
-      <label className="field__label" htmlFor={props.id}>
-        {props.label}
-      </label>
-      <input
-        type={props.type}
-        id={props.id}
-        className="field__input" */
-
 .buildWordGame .field {
   display: flex;
   flex-direction: column;
@@ -328,4 +324,12 @@ code {
 .lettersSet .btn {
   padding: 10px;
   margin: 0;
+}
+
+.buildWordGame .btn-login {
+  margin-bottom: 0;
+}
+
+.buildWordGame .buttons {
+  margin: 5px;
 }

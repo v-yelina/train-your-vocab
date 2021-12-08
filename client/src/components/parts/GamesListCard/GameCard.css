@@ -1,7 +1,7 @@
 .gameCard {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1.5fr 1fr 0.1fr;
+  grid-template-rows: 1.1fr 1fr 0.1fr;
   justify-content: center;
   border: 1px solid #d1c1b3;
   padding: 20px;
@@ -17,7 +17,4 @@
 .gameCard figure img {
   width: 95%;
   margin: 0 auto;
-}
-
-.gameCard button-login {
 }

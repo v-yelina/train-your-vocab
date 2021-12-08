@@ -1,5 +1,5 @@
 import React from "react";
-import "./UnathorizedError.css";
+import "./UnauthorizedError.css";
 
 export default () => {
   return (

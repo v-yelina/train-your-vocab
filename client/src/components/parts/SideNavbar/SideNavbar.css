@@ -1,3 +1,7 @@
+.sideNavbar {
+  position: absolute;
+}
+
 .sideNavbar nav {
   display: flex;
   flex-direction: column;
