@@ -8,10 +8,12 @@ import {
   GET_RANDOM_WORD,
   ADD_COUNT,
   CLEAR_COUNTER,
+  ADD_GAME_TITLE,
 } from "../actions";
 import { myvocab } from "../../myvocab";
 
 const emptyCurrentGame = {
+  gameTitle: "",
   wrongAnswers: [],
   rightAnswers: [],
 };
@@ -34,7 +36,6 @@ export const GamesReducer = (state = initialState, { type, payload }) => {
       };
 
     case ADD_RIGHT_ANSWER:
-      console.log(state);
       return {
         ...state,
         currentGame: {
@@ -44,12 +45,20 @@ export const GamesReducer = (state = initialState, { type, payload }) => {
       };
 
     case ADD_WRONG_ANSWER:
-      console.log(state);
       return {
         ...state,
         currentGame: {
           ...state.currentGame,
           wrongAnswers: [...state.currentGame.wrongAnswers, payload],
+        },
+      };
+
+    case ADD_GAME_TITLE:
+      return {
+        ...state,
+        currentGame: {
+          ...state.currentGame,
+          gameTitle: payload,
         },
       };
 

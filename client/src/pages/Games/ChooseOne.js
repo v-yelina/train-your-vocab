@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { EMPTY_CURRENT_GAME } from "../../store/actions";
+import { ADD_GAME_TITLE, EMPTY_CURRENT_GAME } from "../../store/actions";
 import QuestionCardChooseOne from "../../components/parts/GamesCards/QuestionCardChooseOne";
 import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
 import AnswerCard from "../../components/parts/GamesCards/AnswerCard";
@@ -15,7 +15,15 @@ const ChooseOne = () => {
     dispatch({
       type: EMPTY_CURRENT_GAME,
     });
+    add_game_title();
   }, []);
+
+  const add_game_title = () => {
+    dispatch({
+      type: ADD_GAME_TITLE,
+      payload: "choose_one",
+    });
+  };
 
   const renderCard = () => {
     return showAnswer === 0 ? (

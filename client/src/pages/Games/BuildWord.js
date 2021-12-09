@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { EMPTY_CURRENT_GAME } from "../../store/actions";
+import { ADD_GAME_TITLE, EMPTY_CURRENT_GAME } from "../../store/actions";
 import QuestionCardBuildWord from "../../components/parts/GamesCards/QuestionCardBuildWord";
 import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
@@ -15,7 +15,15 @@ const BuildWord = () => {
     dispatch({
       type: EMPTY_CURRENT_GAME,
     });
+    add_game_title();
   }, []);
+
+  const add_game_title = () => {
+    dispatch({
+      type: ADD_GAME_TITLE,
+      payload: "build_word",
+    });
+  };
 
   const renderCard = () => {
     return showAnswer === 0 ? (

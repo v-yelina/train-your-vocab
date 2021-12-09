@@ -6,6 +6,7 @@ import {
   SET_FALSE,
   SET_TRUE,
   SET_NEW_ANSWER,
+  ADD_GAME_TITLE,
 } from "../../../store/actions";
 
 const QuestionCardBuildWord = () => {

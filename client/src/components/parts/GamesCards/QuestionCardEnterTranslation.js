@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Button from "../../ui/Button/Button";
 import {
@@ -6,6 +6,7 @@ import {
   SET_FALSE,
   SET_TRUE,
   SET_NEW_ANSWER,
+  ADD_GAME_TITLE,
 } from "../../../store/actions";
 
 const QuestionCardEnterTranslation = () => {

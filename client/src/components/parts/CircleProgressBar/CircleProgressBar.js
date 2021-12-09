@@ -20,7 +20,7 @@ const CircleProgressBar = (props) => {
             </svg>
             <div class="num">
               <h2>
-                {props.percent}
+                {Math.round(props.percent)}
                 <span>%</span>
               </h2>
             </div>

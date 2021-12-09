@@ -20,6 +20,7 @@ export const ADD_NEW_WORD = "ADD_NEW_WORD";
 export const GET_RANDOM_WORD = "GET_RANDOM_WORD";
 export const ADD_COUNT = "ADD_COUNT";
 export const CLEAR_COUNTER = "CLEAR_COUNTER";
+export const ADD_GAME_TITLE = "ADD_GAME_TITLE";
 
 // Enter Translation game reducer
 export const SET_NEW_ANSWER = "SET_NEW_ANSWER";
@@ -28,3 +29,10 @@ export const SHOW_ANSWER = "SHOW_ANSWER";
 export const DONT_SHOW_ANSWER = "DONT_SHOW_ANSWER";
 export const SET_TRUE = "SET_TRUE";
 export const SET_FALSE = "SET_FALSE";
+
+// Statistic reducer
+export const FETCH_STATISTIC = "FETCH_STATISTIC";
+export const ADD_BUILD_WORD = "ADD_BUILD_WORD";
+export const ADD_CHOOSE_ONE = "ADD_CHOOSE_ONE";
+export const ADD_ENTER_TRANSLATION = "ADD_ENTER_TRANSLATION";
+export const ADD_LEARNED_WORDS = "ADD_LEARNED_WORDS";

@@ -9,6 +9,10 @@ import {
   ADD_WRONG_ANSWER,
   ADD_COUNT,
   CLEAR_COUNTER,
+  ADD_CHOOSE_ONE,
+  ADD_BUILD_WORD,
+  ADD_ENTER_TRANSLATION,
+  ADD_LEARNED_WORDS,
 } from "../../../store/actions";
 import { getRandomWord } from "../../../store/actionsCreator";
 
@@ -20,8 +24,38 @@ const AnswerCard = () => {
   const randomWord = useSelector((state) => state.games.randomWord);
   const answer = useSelector((state) => state.enterTranslation.answer);
   const vocab = useSelector((state) => state.games.myvocab);
+  const gameTitle = useSelector((state) => state.games.currentGame.gameTitle);
+  const rightAnswers = useSelector(
+    (state) => state.games.currentGame.rightAnswers
+  );
 
   const counter = useSelector((state) => state.games.counter); // count number of attempts
+
+  const add_game = () => {
+    switch (gameTitle) {
+      case "choose_one":
+        dispatch({
+          type: ADD_CHOOSE_ONE,
+        });
+      case "build_word":
+        dispatch({
+          type: ADD_BUILD_WORD,
+        });
+      case "enter_translation":
+        dispatch({
+          type: ADD_ENTER_TRANSLATION,
+        });
+      default:
+        return "There isn't such a game name";
+    }
+  };
+
+  const add_learned_words = () => {
+    dispatch({
+      type: ADD_LEARNED_WORDS,
+      payload: rightAnswers.length,
+    });
+  };
 
   const onAddRightAnswer = (word, translation) => {
     dispatch({
@@ -74,6 +108,8 @@ const AnswerCard = () => {
       }
     } else {
       clearCounter();
+      add_game();
+      add_learned_words();
       navigate("/onegamestat");
     }
     dispatch(getRandomWord(vocab));
