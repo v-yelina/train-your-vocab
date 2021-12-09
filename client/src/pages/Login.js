@@ -5,6 +5,7 @@ import Button from "../components/ui/Button/Button";
 import { doLogin } from "../store/actionsCreator";
 import Error from "../components/ui/Error/Error";
 import { useNavigate } from "react-router-dom";
+import "./styles/Login.css";
 
 const Login = () => {
   const dispatch = useDispatch();

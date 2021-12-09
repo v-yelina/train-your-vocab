@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/ui/Button/Button";
+import "./styles/MainPage.css";
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const MainPage = () => {
         <img
           src="https://image.freepik.com/free-vector/students-learning-foreign-language-with-vocabulary_74855-11070.jpg"
           alt="Words learning"
+          className="mainpage-img"
         />
         <h3>Learn New English Words Faster</h3>
         <p>

@@ -1,0 +1,50 @@
+/* Main page styles */
+
+.appIntroduction {
+  position: relative;
+  background-color: white;
+  width: 50%;
+  margin: 13% 30px 20px 40%;
+  padding: 8% 5% 1% 17%;
+}
+
+.appIntroduction img {
+  position: absolute;
+  top: -23%;
+  left: -65%;
+  width: 90%;
+}
+
+.appIntroduction h3 {
+  text-align: right;
+}
+
+.appIntroduction p {
+  text-align: justify;
+  text-indent: 2%;
+}
+
+.freepic {
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 700px) {
+  article.appIntroduction {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  article.appIntroduction h3 {
+    text-align: center;
+  }
+  .appIntroduction .mainpage-img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}

@@ -20,29 +20,24 @@ const ProfileNav = () => {
   };
 
   return isOpen ? (
-    <div className="navigation profileMenuNavbar">
-      <nav className="nav">
-        <NavLink className="navlink" to="/userprofile">
-          My Profile
-        </NavLink>
-        <NavLink className="navlink" to="/userstatistic">
-          My Statistic
-        </NavLink>
-        <NavLink className="navlink" to="/userdict">
-          My Dictionary
-        </NavLink>
-        {/* <NavLink to="/users" className="navlink">
-          Users
-        </NavLink> */}
-        <Button
-          className="navlink btn-beige"
-          onButtonClick={logoutClickHandler}
-          title="Logout"
-        />
-      </nav>
-    </div>
+    <nav className="nav profileMenuNavbar">
+      <NavLink className="navlink" to="/userprofile">
+        My Profile
+      </NavLink>
+      <NavLink className="navlink" to="/userstatistic">
+        My Statistic
+      </NavLink>
+      <NavLink className="navlink" to="/userdict">
+        My Dictionary
+      </NavLink>
+      <Button
+        className="navlink btn-beige"
+        onButtonClick={logoutClickHandler}
+        title="Logout"
+      />
+    </nav>
   ) : (
-    <div className="navigation profileMenuNavbar">
+    <div className="nav profileMenuNavbar">
       <button
         className="navlink"
         onClick={() => {

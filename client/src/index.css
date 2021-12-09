@@ -45,41 +45,6 @@ code {
   margin: 10px;
 }
 
-/* Main page styles */
-.container {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.appIntroduction {
-  position: relative;
-  background-color: white;
-  width: 50%;
-  margin: 150px 30px 20px 550px;
-  padding: 8% 5% 1% 15%;
-}
-
-.appIntroduction img {
-  position: absolute;
-  top: -50px;
-  left: -350px;
-  width: 550px;
-}
-
-.appIntroduction h3 {
-  text-align: right;
-}
-
-.appIntroduction p {
-  text-align: justify;
-  text-indent: 2%;
-}
-
-.freepic {
-  display: inline-block;
-  margin-bottom: 15px;
-}
-
 /* Games pages styles */
 .gamePageContent {
   display: flex;
@@ -133,36 +98,6 @@ code {
 
 .rightAnswer img {
   width: 460px;
-}
-
-/* Styles for Login Page */
-.login-window {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  margin: 50px auto;
-  background-color: white;
-  border: 2px solid #308594;
-  padding: 50px 0 20px 0;
-}
-
-.login-window h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.login-window form {
-  width: 80%;
-}
-
-.login-window .btn-login {
-  width: 30%;
-  margin: 20px auto 10px;
-}
-
-.login-window .form__input {
-  padding: 10px;
 }
 
 /* One Game stats styles */

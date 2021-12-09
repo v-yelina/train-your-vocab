@@ -1,0 +1,15 @@
+@media only screen and (max-width: 900px) {
+  article.gamePageContent .card {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  article.gamePageContent .card {
+    width: 50%;
+  }
+
+  div.sideNavbar {
+    position: relative;
+  }
+}

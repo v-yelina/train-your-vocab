@@ -34,9 +34,8 @@ const Navbar = () => {
             All Games
           </NavLink>
         </nav>
-        <nav className="nav">
-          <ProfileNav />
-        </nav>
+
+        <ProfileNav />
       </>
     );
   };
