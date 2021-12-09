@@ -11,5 +11,5 @@ module.exports = (app) => {
 
   app.post("./api/v1/userdictionary", controller.create);
 
-  app.use("/api/v1/dictionary", router);
+  app.use("/api/v1/userdictionary", router);
 };
