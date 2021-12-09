@@ -6,6 +6,10 @@ export const CLEAR_ERROR = "CLEAR_ERROR";
 
 export const FETCH_USERS = "FETCH_USERS";
 
+// Dictionaries
+export const FETCH_DICTIONARY = "FETCH_DICTIONARY";
+export const FETCH_USER_DICTIONARY = "FETCH_USER_DICTIONARY";
+
 // Games reducer
 export const ADD_RIGHT_ANSWER = "ADD_RIGHT_ANSWER";
 export const ADD_WRONG_ANSWER = "ADD_WRONG_ANSWER";

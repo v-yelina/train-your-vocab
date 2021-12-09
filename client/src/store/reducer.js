@@ -3,10 +3,12 @@ import { AuthReducer } from "./Auth/AuthReducer";
 import { UsersReducer } from "./Users/UsersReducer";
 import { GamesReducer } from "./Games/GamesReducer";
 import { EnterTranslationReducer } from "./Games/EnterTranslationReducer";
+import { DictionaryReducer } from "./Dictionary/DictReducer";
 
 export const reducer = combineReducers({
   auth: AuthReducer,
   user: UsersReducer,
   games: GamesReducer,
   enterTranslation: EnterTranslationReducer,
+  dict: DictionaryReducer,
 });
