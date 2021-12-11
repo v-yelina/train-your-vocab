@@ -1,5 +1,6 @@
 const db = require("../models");
 const Dictionary = db.dictionary;
+const myvocab = require('../myvocab')
 
 exports.findAll = (req, res) => {
   Dictionary.findAll()
@@ -26,18 +27,11 @@ exports.findOne = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  if (!req.body.word) {
-    res.status(400).send({ message: "Word field can not be empty" });
-    return;
+  if (!req.body.word && !req.body.translation) {
+    return res.status(400).send({ message: "Word field can not be empty" });
   }
 
-  const word = {
-    word: req.body.word,
-    transcription: req.body.transcription,
-    translate: req.body.translate,
-  };
-
-  Dictionary.create(word)
+  Dictionary.create(req.body)
     .then((data) => {
       res.send(data);
     })
@@ -47,3 +41,29 @@ exports.create = (req, res) => {
       });
     });
 };
+
+exports.fillData = (req, res) => {
+    const result = myvocab.map(item => {return {word:item[0],
+        transcription:item[1],
+        translation:item[2]}})
+    Dictionary.bulkCreate(result)
+        .then(()=>{
+            res.send({message: 'hurra!'})
+        }).catch(err => {
+        res.send({message: err.message})
+    })
+    // myvocab.forEach(item => {
+    //     Dictionary.create({
+    //         word:item[0],
+    //             // transcription:item[1],
+    //             translation:item[2]
+    //     })
+    //         .then(data=>{
+    //             result.push(data)
+    //         })
+    //         .catch(err => {
+    //             result.push(err.message)
+    //         })
+    // })
+    // res.send(result);
+}

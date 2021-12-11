@@ -9,6 +9,7 @@ export const getWordsByUser = (userId) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "x-oauth-token": token,
         },
       });
       const data = await response.json();

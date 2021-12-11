@@ -1,121 +1,130 @@
-import React from "react";
-import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect} from "react";
+import {useState} from "react";
+import {useSelector, useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
-import { ADD_NEW_WORD, ADD_WORD_IN_VOCAB } from "../../store/actions";
-import { getRandomWord } from "../../store/actionsCreator";
+import {ADD_NEW_WORD, ADD_WORD_IN_VOCAB} from "../../store/actions";
+import {getRandomWord} from "../../store/actionsCreator";
 import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
 
 const CardsGame = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const isAuth = useSelector((state) => state.auth.auth.isAuth);
-  const vocab = useSelector((state) => state.games.myvocab);
-  const [translation, setTranslation] = useState(false);
-  const randomWord = useSelector((state) => state.games.randomWord);
-  const [counter, setCounter] = useState(0); // count number of attempts
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const isAuth = useSelector((state) => state.auth.auth.isAuth);
+    const vocab = useSelector((state) => state.games.myvocab);
+    const [translation, setTranslation] = useState(false);
+    const randomWord = useSelector((state) => state.games.randomWord);
+    const [counter, setCounter] = useState(0); // count number of attempts
 
-  const userId = 1;
+    const userId = 1;
 
-  const add_word_in_vocab = (userId, word, translation) => {
-    dispatch({
-      type: ADD_WORD_IN_VOCAB,
-      payload: [userId, word, translation],
-    });
-  };
+    useEffect(() => {
+        dispatch(getRandomWord())
+    }, [])
 
-  const add_new_word = () => {
-    dispatch({
-      type: ADD_NEW_WORD,
-    });
-  };
+    const add_word_in_vocab = (userId, word, translation) => {
+        dispatch({
+            type: ADD_WORD_IN_VOCAB,
+            payload: [userId, word, translation],
+        });
+    };
 
-  const isGameFinished = () => {
-    if (counter < 10) {
-      setCounter(counter + 1);
-    } else {
-      setCounter(0);
-      navigate("/cardgameresults");
-    }
-  };
+    const add_new_word = () => {
+        dispatch({
+            type: ADD_NEW_WORD,
+        });
+    };
 
-  const picUrl =
-    "https://image.freepik.com/free-vector/hand-painted-sun_23-2147510442.jpg";
+    const isGameFinished = () => {
+        if (counter < 10) {
+            setCounter(counter + 1);
+        } else {
+            setCounter(0);
+            navigate("/cardgameresults");
+        }
+    };
 
-  const flip = () => {
-    const element = document.getElementsByClassName("cardGame")[0];
-    if (translation) {
-      element.style.transform = "rotateY(0deg)";
-    } else {
-      element.style.transform = "rotateY(360deg)";
-    }
-  };
-  const onClickHandler = () => {
-    flip();
-    translation ? setTranslation(false) : setTranslation(true);
-  };
+    const picUrl =
+        "https://image.freepik.com/free-vector/successful-businessman-celebrating-victory_1150-39772.jpg";
 
-  const onClickAlreadyKnow = () => {
-    dispatch(getRandomWord(vocab));
-    isGameFinished();
-    setTranslation(false);
-  };
+    const flip = () => {
+        const element = document.getElementsByClassName("cardGame")[0];
+        if (translation) {
+            element.style.transform = "rotateY(0deg)";
+        } else {
+            element.style.transform = "rotateY(360deg)";
+        }
+    };
+    const onClickHandler = () => {
+        flip();
+        translation ? setTranslation(false) : setTranslation(true);
+    };
 
-  const onClickLearn = () => {
-    add_word_in_vocab(userId, randomWord[0], randomWord[2]);
-    add_new_word();
-    dispatch(getRandomWord(vocab));
-    isGameFinished();
-    setTranslation(false);
-  };
+    const onClickAlreadyKnow = () => {
+        dispatch(getRandomWord(vocab));
+        isGameFinished();
+        setTranslation(false);
+    };
 
-  const renderCardContent = () => {
-    return translation ? (
-      <div className="cardContent" onClick={() => onClickHandler()}>
-        <h3 className="targetWord">{randomWord[2]}</h3>
-        <img src={picUrl} alt="Word" />
-      </div>
+    const onClickLearn = () => {
+        add_word_in_vocab(userId, randomWord.word, randomWord.translation);
+        add_new_word();
+        dispatch(getRandomWord(vocab));
+        isGameFinished();
+        setTranslation(false);
+    };
+
+    const renderCardContent = () => {
+
+        if (randomWord) {
+            return translation ? (
+                <div className="cardContent" onClick={() => onClickHandler()}>
+                    <h3 className="targetWord">{randomWord.translation}</h3>
+                    <img src={picUrl} alt="Word"/>
+                </div>
+            ) : (
+                <div className="cardContent" onClick={() => onClickHandler()}>
+                    <h3 className="targetWord">{randomWord.word}</h3>
+                    <img
+                        src="https://image.freepik.com/free-vector/question-mark-sign-brush-stroke-trash-style-typography-vector_53876-140880.jpg"
+                        alt="Word"
+                    />
+                </div>
+            );
+        } else {
+            return;
+        }
+    };
+
+    return isAuth ? (
+        <article className="gamePageContent">
+            <SideNavbar/>
+            <div className="card cardGame">
+                {renderCardContent()}
+                <div className="buttons">
+                    <Button
+                        type="button"
+                        title="Already know"
+                        onButtonClick={() => {
+                            onClickAlreadyKnow();
+                        }}
+                        className="btn-green"
+                    />
+                    <Button
+                        type="button"
+                        title="Learn"
+                        onButtonClick={() => {
+                            onClickLearn();
+                        }}
+                        className="btn-beige"
+                    />
+                </div>
+            </div>
+        </article>
     ) : (
-      <div className="cardContent" onClick={() => onClickHandler()}>
-        <h3 className="targetWord">{randomWord[0]}</h3>
-        <img
-          src="https://image.freepik.com/free-vector/question-mark-sign-brush-stroke-trash-style-typography-vector_53876-140880.jpg"
-          alt="Word"
-        />
-      </div>
+        <UnauthorizedError/>
     );
-  };
-
-  return isAuth ? (
-    <article className="gamePageContent">
-      <SideNavbar />
-      <div className="card cardGame">
-        {renderCardContent()}
-        <div className="buttons">
-          <Button
-            type="button"
-            title="Already know"
-            onButtonClick={() => {
-              onClickAlreadyKnow();
-            }}
-            className="btn-green"
-          />
-          <Button
-            type="button"
-            title="Learn"
-            onButtonClick={() => {
-              onClickLearn();
-            }}
-            className="btn-beige"
-          />
-        </div>
-      </div>
-    </article>
-  ) : (
-    <UnauthorizedError />
-  );
 };
 
 export default CardsGame;

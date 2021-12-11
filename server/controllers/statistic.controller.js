@@ -1,5 +1,5 @@
 const db = require("../models");
-const Statistic = db.userdictionary;
+const Statistic = db.statistic;
 
 exports.findAll = (req, res) => {
   Statistic.findAll()
@@ -13,7 +13,9 @@ exports.findAll = (req, res) => {
 
 exports.findAllByUser = (req, res) => {
   const userId = req.params.userId;
-  Statistic.findByPk(userId)
+  Statistic.findByPk(userId, {
+    include: ["user"],
+  })
     .then((data) => {
       if (data) {
         return res.send(data);
@@ -26,7 +28,7 @@ exports.findAllByUser = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  if (!req.body.record) {
+  if (!req.body.userId) {
     res.status(400).send({ message: "Record field can not be empty" });
     return;
   }

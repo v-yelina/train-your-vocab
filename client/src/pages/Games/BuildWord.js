@@ -5,9 +5,11 @@ import QuestionCardBuildWord from "../../components/parts/GamesCards/QuestionCar
 import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
 import AnswerCard from "../../components/parts/GamesCards/AnswerCard";
+import {getRandomWord} from "../../store/actionsCreator";
 
 const BuildWord = () => {
   const dispatch = useDispatch();
+  const randomWord = useSelector((state) => state.games.randomWord);
   const showAnswer = useSelector((state) => state.enterTranslation.showAnswer);
   const isAuth = useSelector((state) => state.auth.auth.isAuth);
 
@@ -16,6 +18,7 @@ const BuildWord = () => {
       type: EMPTY_CURRENT_GAME,
     });
     add_game_title();
+    dispatch(getRandomWord())
   }, []);
 
   const add_game_title = () => {
@@ -35,6 +38,7 @@ const BuildWord = () => {
     );
   };
 
+  if (randomWord) {
   return isAuth ? (
     <article className="gamePageContent">
       <SideNavbar />
@@ -42,7 +46,9 @@ const BuildWord = () => {
     </article>
   ) : (
     <UnauthorizedError />
-  );
+  );} else {
+    return;
+  }
 };
 
 export default BuildWord;

@@ -23,10 +23,10 @@ const QuestionCardEnterTranslation = () => {
   }, []);
 
   const createAnswers = () => {
-    const answersList = [randomWord[2]];
+    const answersList = [randomWord.translation];
     while (answersList.length < 4) {
       let newAnswer = vocab[Math.floor(Math.random() * vocab.length)][2];
-      if (newAnswer !== randomWord[2]) {
+      if (newAnswer !== randomWord.translation) {
         answersList.push(newAnswer);
       }
     }
@@ -68,13 +68,12 @@ const QuestionCardEnterTranslation = () => {
 
   useEffect(() => {
     if (answer) {
-      answer === randomWord[2] ? setTrue() : setFalse();
+      answer === randomWord.translation ? setTrue() : setFalse();
       showAnswer();
     }
   }, [answer]);
 
   const onFieldChange = (event) => {
-    event.preventDefault();
     setSelectedOption(event.target.value);
   };
 
@@ -101,7 +100,7 @@ const QuestionCardEnterTranslation = () => {
 
   return (
     <article className="card chooseOneGame">
-      <h3 className="targetWord">{randomWord[0]}</h3>
+      <h3 className="targetWord">{randomWord.word}</h3>
       <img
         src="https://image.freepik.com/free-vector/question-mark-sign-brush-stroke-trash-style-typography-vector_53876-140880.jpg"
         alt="Word"

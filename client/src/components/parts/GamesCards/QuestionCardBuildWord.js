@@ -22,7 +22,7 @@ const QuestionCardBuildWord = () => {
   }, []);
 
   const createLettersArray = () => {
-    const lettersArray = randomWord[0].split("");
+    const lettersArray = randomWord.word.split("");
     for (let i = 0; i < 3; i++) {
       lettersArray.push(alphabet[Math.floor(Math.random() * alphabet.length)]);
     }
@@ -64,7 +64,7 @@ const QuestionCardBuildWord = () => {
 
   useEffect(() => {
     if (answer) {
-      answer === randomWord[0] ? setTrue() : setFalse();
+      answer === randomWord.word ? setTrue() : setFalse();
       showAnswer();
     }
   }, [answer]);
@@ -95,7 +95,7 @@ const QuestionCardBuildWord = () => {
 
   return (
     <article className="card buildWordGame">
-      <h3 className="targetWord">{randomWord[2]}</h3>
+      <h3 className="targetWord">{randomWord.translation}</h3>
       <img
         src="https://image.freepik.com/free-vector/question-mark-sign-brush-stroke-trash-style-typography-vector_53876-140880.jpg"
         alt="Word"

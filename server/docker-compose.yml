@@ -9,3 +9,4 @@ services:
       - "33306:3306"
     volumes:
       - ./dbdata:/var/lib/mysql
+      - ./mycustom.cnf:/etc/mysql/conf.di/custom.cnf

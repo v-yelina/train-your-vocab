@@ -33,7 +33,7 @@ const QuestionCardEnterTranslation = () => {
   };
 
   const checkAnswer = () => {
-    answer === randomWord[0] ? setTrue() : setFalse();
+    answer === randomWord.word ? setTrue() : setFalse();
   };
 
   const onHandleChange = (event) => {

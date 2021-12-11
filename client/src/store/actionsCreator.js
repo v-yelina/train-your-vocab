@@ -7,6 +7,7 @@ import {
 } from "./actions";
 const URL = "http://localhost:8080/api/v1/";
 
+
 export const doLogin = (login) => {
   return async (dispatch) => {
     try {
@@ -79,8 +80,8 @@ export const authInReload = () => {
 };
 
 export const getRandomWord = (vocab) => {
-  return (dispatch) => {
-    let newRandom = vocab[Math.floor(Math.random() * vocab.length)];
+  return (dispatch, getState) => {
+    let newRandom = getState().games.myvocab[Math.floor(Math.random() * getState().games.myvocab.length)];
     dispatch({
       type: GET_RANDOM_WORD,
       payload: newRandom,
@@ -108,3 +109,15 @@ const setError = (message) => {
     payload: message,
   };
 };
+// Fill database dictionary with words from myvocab file
+export const fillDict = () => {
+  return async () => {
+    try{
+      const response = await fetch(`${URL}dictionary/filldata`)
+      const data = response.json();
+      console.log(data)
+    } catch (e) {
+      console.log(e.message)
+    }
+  }
+}

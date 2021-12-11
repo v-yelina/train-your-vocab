@@ -5,9 +5,11 @@ import QuestionCardEnterTranslation from "../../components/parts/GamesCards/Ques
 import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
 import AnswerCard from "../../components/parts/GamesCards/AnswerCard";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
+import {getRandomWord} from "../../store/actionsCreator";
 
 const EnterTranslation = () => {
   const dispatch = useDispatch();
+  const randomWord = useSelector((state) => state.games.randomWord);
   const showAnswer = useSelector((state) => state.enterTranslation.showAnswer);
   const isAuth = useSelector((state) => state.auth.auth.isAuth);
 
@@ -16,6 +18,7 @@ const EnterTranslation = () => {
       type: EMPTY_CURRENT_GAME,
     });
     add_game_title();
+    dispatch(getRandomWord())
   }, []);
 
   const add_game_title = () => {
@@ -35,6 +38,7 @@ const EnterTranslation = () => {
     );
   };
 
+  if (randomWord) {
   return isAuth ? (
     <article className="gamePageContent">
       <SideNavbar />
@@ -43,5 +47,8 @@ const EnterTranslation = () => {
   ) : (
     <UnauthorizedError />
   );
+  } else {
+    return;
+  }
 };
 export default EnterTranslation;

@@ -13,7 +13,7 @@ exports.findAll = (req, res) => {
 
 exports.findAllByUser = (req, res) => {
   const userId = req.params.userId;
-  UserDictionary.findByPk(userId)
+  UserDictionary.findByPk(userId, { include: ["user", "word"] })
     .then((data) => {
       if (data) {
         return res.send(data);
@@ -25,28 +25,14 @@ exports.findAllByUser = (req, res) => {
     });
 };
 
-exports.findOne = (req, res) => {
-  const id = req.params.id;
-  UserDictionary.findByPk(id)
-    .then((data) => {
-      if (data) {
-        return res.send(data);
-      }
-      res.status(404).send({ message: "Dictionary not found" });
-    })
-    .catch((err) => {
-      res.status(500).send({ message: err.message });
-    });
-};
-
 exports.create = (req, res) => {
-  if (!req.body.record) {
+  if (!req.body.wordId) {
     res.status(400).send({ message: "Record field can not be empty" });
     return;
   }
 
   const record = {
-    userId: req.body.userId,
+    userId: req.userId,
     wordId: req.body.wordId,
   };
 

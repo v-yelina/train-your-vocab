@@ -5,9 +5,11 @@ import QuestionCardChooseOne from "../../components/parts/GamesCards/QuestionCar
 import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
 import AnswerCard from "../../components/parts/GamesCards/AnswerCard";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
+import {getRandomWord} from "../../store/actionsCreator";
 
 const ChooseOne = () => {
   const dispatch = useDispatch();
+  const randomWord = useSelector((state) => state.games.randomWord);
   const showAnswer = useSelector((state) => state.enterTranslation.showAnswer);
   const isAuth = useSelector((state) => state.auth.auth.isAuth);
 
@@ -16,6 +18,7 @@ const ChooseOne = () => {
       type: EMPTY_CURRENT_GAME,
     });
     add_game_title();
+    dispatch(getRandomWord())
   }, []);
 
   const add_game_title = () => {
@@ -35,6 +38,7 @@ const ChooseOne = () => {
     );
   };
 
+  if (randomWord) {
   return isAuth ? (
     <article className="gamePageContent">
       <SideNavbar />
@@ -43,6 +47,9 @@ const ChooseOne = () => {
   ) : (
     <UnauthorizedError />
   );
+  } else {
+    return;
+  }
 };
 
 export default ChooseOne;

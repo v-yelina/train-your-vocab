@@ -18,8 +18,9 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
   User.findByPk(id, {
+    include: ["statistic", "dict"],
     attributes: {
-      exclude: ["password"],
+      exclude: ["password", "updatedAt"],
     },
   })
     .then((data) => {

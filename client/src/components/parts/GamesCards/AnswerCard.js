@@ -123,7 +123,7 @@ const AnswerCard = () => {
         isTrue === false ? "wrongAnswer" : isTrue === true ? "rightAnswer" : ""
       }`}
     >
-      <h3 className="targetWord">{randomWord[2]}</h3>
+      <h3 className="targetWord">{randomWord.translation}</h3>
       <p>{randomWord[0]}</p>
       <div className="answerImg">
         <img
@@ -135,7 +135,7 @@ const AnswerCard = () => {
         type="button"
         title="Next word"
         onButtonClick={() => {
-          onClickNext(randomWord[0], randomWord[2]);
+          onClickNext(randomWord.word, randomWord.translation);
         }}
         className="btn-green"
       />

@@ -8,7 +8,7 @@ import {
   GET_RANDOM_WORD,
   ADD_COUNT,
   CLEAR_COUNTER,
-  ADD_GAME_TITLE,
+  ADD_GAME_TITLE, FETCH_DICTIONARY,
 } from "../actions";
 import { myvocab } from "../../myvocab";
 
@@ -20,15 +20,21 @@ const emptyCurrentGame = {
 
 const initialState = {
   counter: 0,
-  myvocab: [...myvocab],
+  myvocab: [],
   currentGame: emptyCurrentGame,
   uservocab: [],
   newWords: 0,
-  randomWord: myvocab[Math.floor(Math.random() * myvocab.length)],
+  randomWord: null,
 };
 
 export const GamesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case FETCH_DICTIONARY:
+      return {
+        ...state,
+        myvocab: payload,
+      }
+
     case GET_RANDOM_WORD:
       return {
         ...state,
