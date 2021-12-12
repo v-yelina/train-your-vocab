@@ -4,16 +4,18 @@ import {useNavigate} from "react-router-dom";
 import Button from "../components/ui/Button/Button";
 import "./styles/MainPage.css";
 import {getAllWords} from "../store/Dictionary/DictActionCreator";
+import {getOneUser} from "../store/Users/UserActionCreator";
 
 
 const MainPage = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
+    const userId = useSelector((state) => state.auth.auth.userId);
     const isAuth = useSelector((state) => state.auth.auth.isAuth);
 
     useEffect(()=>{
-        dispatch(getAllWords())
+        dispatch(getAllWords());
+        dispatch(getOneUser(userId));
     },[])
 
 

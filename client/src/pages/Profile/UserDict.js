@@ -1,8 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
 
 const UserDict = () => {
+  const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.auth.auth.isAuth);
 
   return isAuth ? (

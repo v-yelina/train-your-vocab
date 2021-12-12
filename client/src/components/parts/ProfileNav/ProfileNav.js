@@ -27,7 +27,7 @@ const ProfileNav = () => {
       <NavLink className="navlink" to="/userstatistic">
         My Statistic
       </NavLink>
-      <NavLink className="navlink" to="/userdict">
+      <NavLink className="navlink" to="/userdictionary">
         My Dictionary
       </NavLink>
       <Button

@@ -16,17 +16,17 @@ const CardsGame = () => {
     const [translation, setTranslation] = useState(false);
     const randomWord = useSelector((state) => state.games.randomWord);
     const [counter, setCounter] = useState(0); // count number of attempts
+    const userId = useSelector((state) => state.auth.auth.userId);
 
-    const userId = 1;
 
     useEffect(() => {
         dispatch(getRandomWord())
     }, [])
 
-    const add_word_in_vocab = (userId, word, translation) => {
+    const add_word_in_vocab = (userId, wordId, word, translation) => {
         dispatch({
             type: ADD_WORD_IN_VOCAB,
-            payload: [userId, word, translation],
+            payload: [userId, wordId, word, translation],
         });
     };
 
@@ -68,7 +68,7 @@ const CardsGame = () => {
     };
 
     const onClickLearn = () => {
-        add_word_in_vocab(userId, randomWord.word, randomWord.translation);
+        add_word_in_vocab(userId, randomWord.id, randomWord.word, randomWord.translation);
         add_new_word();
         dispatch(getRandomWord(vocab));
         isGameFinished();

@@ -8,7 +8,7 @@ import {
   GET_RANDOM_WORD,
   ADD_COUNT,
   CLEAR_COUNTER,
-  ADD_GAME_TITLE, FETCH_DICTIONARY,
+  ADD_GAME_TITLE, FETCH_DICTIONARY, FETCH_USER_DICTIONARY,
 } from "../actions";
 import { myvocab } from "../../myvocab";
 
@@ -33,6 +33,12 @@ export const GamesReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         myvocab: payload,
+      }
+
+    case FETCH_USER_DICTIONARY:
+      return {
+        ...state,
+        uservocab: payload,
       }
 
     case GET_RANDOM_WORD:

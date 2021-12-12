@@ -4,7 +4,9 @@ export const SET_ERROR = "SET_ERROR";
 export const EMPTY_AUTH = "EMPTY_AUTH";
 export const CLEAR_ERROR = "CLEAR_ERROR";
 
+// User reducer
 export const FETCH_USERS = "FETCH_USERS";
+export const FETCH_ONE_USER = 'FETCH_ONE_USER';
 
 // Dictionaries
 export const FETCH_DICTIONARY = "FETCH_DICTIONARY";
