@@ -7,6 +7,7 @@ import {ADD_NEW_WORD, ADD_WORD_IN_VOCAB} from "../../store/actions";
 import {getRandomWord} from "../../store/actionsCreator";
 import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
+import {addNewWordInDictionary, addNewWordsInDictionary} from "../../store/Dictionary/UserDictActionsCeator";
 
 const CardsGame = () => {
     const dispatch = useDispatch();
@@ -17,18 +18,19 @@ const CardsGame = () => {
     const randomWord = useSelector((state) => state.games.randomWord);
     const [counter, setCounter] = useState(0); // count number of attempts
     const userId = useSelector((state) => state.auth.auth.userId);
+    // const uservocab = useSelector((state) => state.games.uservocab);
 
 
     useEffect(() => {
         dispatch(getRandomWord())
     }, [])
 
-    const add_word_in_vocab = (userId, wordId, word, translation) => {
-        dispatch({
-            type: ADD_WORD_IN_VOCAB,
-            payload: [userId, wordId, word, translation],
-        });
-    };
+    // const add_word_in_vocab = (userId, wordId) => {
+    //     dispatch({
+    //         type: ADD_WORD_IN_VOCAB,
+    //         payload: [userId, wordId],
+    //     });
+    // };
 
     const add_new_word = () => {
         dispatch({
@@ -68,7 +70,7 @@ const CardsGame = () => {
     };
 
     const onClickLearn = () => {
-        add_word_in_vocab(userId, randomWord.id, randomWord.word, randomWord.translation);
+        dispatch(addNewWordInDictionary(userId, randomWord.id));
         add_new_word();
         dispatch(getRandomWord(vocab));
         isGameFinished();
@@ -93,7 +95,7 @@ const CardsGame = () => {
                 </div>
             );
         } else {
-            return;
+            return <div className='unauthorized'>Something is wrong</div>;
         }
     };
 

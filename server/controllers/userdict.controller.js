@@ -27,12 +27,12 @@ exports.findAllByUser = (req, res) => {
 
 exports.create = (req, res) => {
   if (!req.body.wordId) {
-    res.status(400).send({ message: "Record field can not be empty" });
+    res.status(400).send({ message: "WordId field can not be empty" });
     return;
   }
 
   const record = {
-    userId: req.userId,
+    userId: req.body.userId,
     wordId: req.body.wordId,
   };
 

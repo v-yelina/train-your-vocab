@@ -11,6 +11,7 @@ export const FETCH_ONE_USER = 'FETCH_ONE_USER';
 // Dictionaries
 export const FETCH_DICTIONARY = "FETCH_DICTIONARY";
 export const FETCH_USER_DICTIONARY = "FETCH_USER_DICTIONARY";
+export const ADD_WORD_IN_USER_DICT = 'ADD_WORD_IN_USER_DICT';
 
 // Games reducer
 export const ADD_RIGHT_ANSWER = "ADD_RIGHT_ANSWER";

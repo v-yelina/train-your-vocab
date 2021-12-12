@@ -31,6 +31,7 @@ const CardGameResults = () => {
             title="Play Again"
             onButtonClick={() => {
               clear_new_words();
+              //clearWordsInVocab();
               navigate("/cards");
             }}
             className="btn-beige"
@@ -40,6 +41,7 @@ const CardGameResults = () => {
             title="Train new words"
             onButtonClick={() => {
               clear_new_words();
+              //clearWordsInVocab();
               navigate("/gameslist");
             }}
             className="btn-login"

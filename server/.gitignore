@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /dbdata
-/server/dbdata
+../dbdata
 /.pnp
 .pnp.js
 .idea

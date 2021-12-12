@@ -3,52 +3,60 @@ import {useDispatch, useSelector} from "react-redux";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
 import {useNavigate} from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
+import '../styles/UserDict.css'
 
 const UserDict = () => {
-  const isAuth = useSelector((state) => state.auth.auth.isAuth);
-  const loggedInUser = useSelector((state) => state.user.current_user)
-  const navigate = useNavigate();
+    const isAuth = useSelector((state) => state.auth.auth.isAuth);
+    const loggedInUser = useSelector((state) => state.user.current_user)
+    const navigate = useNavigate();
+    const vocab = useSelector((state) => state.games.myvocab);
 
-  const renderDict = () => {
-    return loggedInUser.dict.map(word => <div className='userWord' key='word.word'><span
-        className='word'>{word.word}</span><span className='transcription'>{word.transcription}</span><span
-        className='translation'>{word.translation}</span></div>)
-  }
+    const findWordById = (id) => {
+        return vocab.find(word => word.id === id)
+    }
 
 
-  if (loggedInUser) {
-    return isAuth ? (
-        <section className="gamesListPage">
-          <h2>My Dictionary</h2>
-          <div className='userDictionary'>
-            {renderDict()}
-            <div className='buttons'>
-              <Button
-                  type="button"
-                  title="My statistic"
-                  onButtonClick={() => {
-                    navigate("/userprofile");
-                  }}
-                  className="btn-login"
-              />
-              <Button
-                  type="button"
-                  title="My dictionary"
-                  onButtonClick={() => {
-                    navigate("/userdictionary");
-                  }}
-                  className="btn-beige"
-              />
-            </div>
-          </div>
+    const renderDict = () => {
+        return loggedInUser.dict.map(item => <div className='userWord' key={item.wordId}><span
+            className='word'>{findWordById(item.wordId).word}</span><span
+            className='transcription'>{findWordById(item.wordId).transcription}</span><span
+            className='translation'>{findWordById(item.wordId).translation}</span></div>)
+    }
 
-        </section>
-    ) : (
-        <UnauthorizedError/>
-    );
-  } else {
-    return <div className='unauthorized'>Something is wrong</div>;
-  }
+
+    if (loggedInUser) {
+        return isAuth ? (
+            <section className="gamesListPage">
+                <h2>My Dictionary</h2>
+                <div className='userDictionary'>
+                    {renderDict()}
+                    <div className='buttons'>
+                        <Button
+                            type="button"
+                            title="My profile"
+                            onButtonClick={() => {
+                                navigate("/userprofile");
+                            }}
+                            className="btn-login"
+                        />
+                        <Button
+                            type="button"
+                            title="My statistic"
+                            onButtonClick={() => {
+                                navigate("/userprofile");
+                            }}
+                            className="btn-beige"
+                        />
+                    </div>
+                </div>
+
+            </section>
+        ) : (
+            <UnauthorizedError/>
+        );
+    } else {
+        return <div className='unauthorized'>Something is wrong</div>;
+    }
 }
 
 export default UserDict;
