@@ -32,7 +32,7 @@ const UserStatistic = () => {
             <div className='buttons'>
               <Button
                   type="button"
-                  title="My statistic"
+                  title="My profile"
                   onButtonClick={() => {
                     navigate("/userprofile");
                   }}
