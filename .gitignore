@@ -5,8 +5,8 @@
 /.pnp
 .pnp.js
 .idea
-./server/dbdata
-./dbdata
+./server/dbdata/
+./dbdata/
 
 # testing
 /coverage
