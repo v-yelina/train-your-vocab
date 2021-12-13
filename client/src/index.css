@@ -49,6 +49,15 @@ code {
   margin: 0 auto;
 }
 
+.cardGame .cardContent {
+  margin-bottom: 0;
+}
+
+.cardContent .transcriptedWord {
+  margin-top: 5px;
+  font-size: larger;
+}
+
 /* Styles for Enter Translation */
 .enterGame input {
   margin-top: 20px;

@@ -19,7 +19,7 @@ export const UsersReducer = (state = initialState, { type, payload }) => {
 
     case ADD_WORD_IN_USER_DICT:
       return {
-        ...state, current_user: {...state.current_user, dict: {...state.current_user.dict, payload}}
+        ...state, current_user: {...state.current_user, dict: [...state.current_user.dict, payload]}
       }
 
     default:

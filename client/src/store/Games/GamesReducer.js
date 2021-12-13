@@ -37,7 +37,7 @@ export const GamesReducer = (state = initialState, { type, payload }) => {
     case FETCH_USER_DICTIONARY:
       return {
         ...state,
-        uservocab: payload,
+        uservocab: {...state.uservocab, payload}
       }
 
     case GET_RANDOM_WORD:

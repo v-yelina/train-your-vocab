@@ -23,12 +23,6 @@ const CardsGame = () => {
         dispatch(getRandomWord())
     }, [])
 
-    // const add_word_in_vocab = (userId, wordId) => {
-    //     dispatch({
-    //         type: ADD_WORD_IN_VOCAB,
-    //         payload: [userId, wordId],
-    //     });
-    // };
 
     const add_new_word = () => {
         dispatch({
@@ -90,6 +84,7 @@ const CardsGame = () => {
                         src="https://image.freepik.com/free-vector/question-mark-sign-brush-stroke-trash-style-typography-vector_53876-140880.jpg"
                         alt="Word"
                     />
+                    <h4 className="transcriptedWord">{randomWord.transcription}</h4>
                 </div>
             );
         } else {

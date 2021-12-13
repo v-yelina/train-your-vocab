@@ -1,15 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
 import {useNavigate} from "react-router-dom";
 import Button from "../../components/ui/Button/Button";
 import '../styles/UserDict.css'
+import {getOneUser} from "../../store/Users/UserActionCreator";
 
 const UserDict = () => {
+    const dispatch = useDispatch();
     const isAuth = useSelector((state) => state.auth.auth.isAuth);
     const loggedInUser = useSelector((state) => state.user.current_user)
     const navigate = useNavigate();
     const vocab = useSelector((state) => state.games.myvocab);
+    const userId = useSelector((state) => state.auth.auth.userId);
+
+    useEffect(() => {
+        dispatch(getOneUser(userId));
+    }, []);
 
     const findWordById = (id) => {
         return vocab.find(word => word.id === id)
