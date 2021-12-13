@@ -4,8 +4,6 @@ const URL = "http://localhost:8080/api/v1/";
 export const updateStatisticByUser = (newStat) => {
     return async (dispatch) => {
         try {
-            console.log('try to fetch')
-            console.log(newStat)
             const response = await fetch(`${URL}statistic/${newStat.statistic.userId}`, {
                 method: "PUT",
                 body: JSON.stringify({
@@ -21,33 +19,11 @@ export const updateStatisticByUser = (newStat) => {
                     "Content-Type": "application/json",
                 },
             });
-            // const data = await response.json();
-            // if (response.status === 200) {
-            //     console.log('try to dispatch')
-            //
-            //     const statistic = {
-            //         userId: data.userId,
-            //         choose_one_count: data.choose_one_count,
-            //         enter_translation_count: data.enter_translation_count,
-            //         build_word_count: data.build_word_count,
-            //         learned_words_count: data.learned_words_count,
-            //         isActive: data.isActive,
-            //     };
-            //     dispatch(updateStatistic(data))
-            //     return true;
-            // }
         } catch (err) {
             console.log(err.message);
         }
     };
 };
-
-// const updateStatistic = (data) => {
-//     return {
-//         type: UPDATE_STATISTIC,
-//         payload: data,
-//     };
-// }
 
 export const getUserStatistic = (data) => {
     return {

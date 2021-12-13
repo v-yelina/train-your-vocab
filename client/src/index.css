@@ -67,10 +67,12 @@ code {
 }
 
 .wrongAnswer {
+  width: 35%;
   border: 3px solid red;
 }
 
 .rightAnswer {
+  width: 35%;
   border: 5px solid green;
 }
 
@@ -237,6 +239,7 @@ code {
   margin: 10px auto;
   padding: 5px;
   border-bottom: 1px solid black;
+  text-transform: uppercase;
 }
 
 .lettersSet {

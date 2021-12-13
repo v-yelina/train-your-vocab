@@ -5,6 +5,7 @@ import Error from "../components/ui/Error/Error";
 import Field from "../components/ui/Field/Field";
 import Button from "../components/ui/Button/Button";
 import { useNavigate } from "react-router-dom";
+import './styles/Login.css'
 
 const Registration = () => {
   const dispatch = useDispatch();
