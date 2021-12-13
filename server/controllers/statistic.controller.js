@@ -13,14 +13,14 @@ exports.findAll = (req, res) => {
 
 exports.findAllByUser = (req, res) => {
   const userId = req.params.userId;
-  Statistic.findByPk(userId, {
+  Statistic.findOne({ where: { userId: userId } }, {
     include: ["user"],
   })
     .then((data) => {
       if (data) {
         return res.send(data);
       }
-      res.status(404).send({ message: "Words not found" });
+      res.status(404).send({ message: "Statistic not found" });
     })
     .catch((err) => {
       res.status(500).send({ message: err.message });
@@ -29,7 +29,7 @@ exports.findAllByUser = (req, res) => {
 
 exports.create = (req, res) => {
   if (!req.body.userId) {
-    res.status(400).send({ message: "Record field can not be empty" });
+    res.status(400).send({ message: "UserId field can not be empty" });
     return;
   }
 
@@ -51,3 +51,32 @@ exports.create = (req, res) => {
       });
     });
 };
+
+exports.update = (req, res) => {
+  const userId = req.params.userId;
+
+  Statistic.update(req.body, {
+    where: { userId: userId },
+  })
+      .then((data) => {
+        if (data == 1) {
+          Statistic.findByPk(userId)
+              .then((data) => {
+                res.send(data);
+              })
+              .catch((err) => {
+                res.status(500).send({ message: err.message });
+              });
+        } else {
+          res.status(400).send({
+            message: "Cannot update statistic with userId=" + userId,
+          });
+        }
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || "Some error occurred while updating",
+        });
+      });
+};
+

@@ -15,8 +15,11 @@ const MainPage = () => {
 
     useEffect(()=>{
         dispatch(getAllWords());
-        dispatch(getOneUser(userId));
     },[])
+
+    useEffect(()=>{
+        dispatch(getOneUser(userId));
+    },[userId])
 
 
     const renderButtons = () => {

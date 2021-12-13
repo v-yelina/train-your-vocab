@@ -18,8 +18,6 @@ const CardsGame = () => {
     const randomWord = useSelector((state) => state.games.randomWord);
     const [counter, setCounter] = useState(0); // count number of attempts
     const userId = useSelector((state) => state.auth.auth.userId);
-    // const uservocab = useSelector((state) => state.games.uservocab);
-
 
     useEffect(() => {
         dispatch(getRandomWord())

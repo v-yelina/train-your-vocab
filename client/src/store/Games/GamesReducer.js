@@ -10,7 +10,6 @@ import {
   CLEAR_COUNTER,
   ADD_GAME_TITLE, FETCH_DICTIONARY, FETCH_USER_DICTIONARY, ADD_WORD_IN_USER_DICT,
 } from "../actions";
-import { myvocab } from "../../myvocab";
 
 const emptyCurrentGame = {
   gameTitle: "",

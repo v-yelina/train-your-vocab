@@ -9,5 +9,7 @@ module.exports = (app) => {
 
   app.post("/api/v1/statistic", controller.create);
 
+  app.put("/api/v1/statistic/:userId", controller.update);
+
   app.use("/api/v1/statistic", router);
 };

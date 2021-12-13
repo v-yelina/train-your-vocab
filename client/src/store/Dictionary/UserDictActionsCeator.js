@@ -27,10 +27,8 @@ const fetchUserDictionary = (userId, data) => {
 };
 
 export const addNewWordInDictionary = (userId, wordId) => {
-    console.log('usrId')
     return async (dispatch) => {
         try {
-            console.log('try to fetch')
             const response = await fetch(`${URL}userdictionary`, {
                 method: "POST",
                 body: JSON.stringify({userId: userId, wordId: wordId}),
@@ -40,8 +38,6 @@ export const addNewWordInDictionary = (userId, wordId) => {
             });
             const data = await response.json();
             if (response.status === 200) {
-                console.log('try to dispatch')
-
                 const word = {
                     userId: data.userId, wordId: data.wordId
                 };

@@ -124,7 +124,7 @@ const AnswerCard = () => {
       }`}
     >
       <h3 className="targetWord">{randomWord.translation}</h3>
-      <p>{randomWord[0]}</p>
+      <p>{randomWord.word}</p>
       <div className="answerImg">
         <img
           src="https://image.freepik.com/free-vector/check-cross-signs-paint-design_1102-228.jpg"

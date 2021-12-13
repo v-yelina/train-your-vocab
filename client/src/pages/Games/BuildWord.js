@@ -6,19 +6,27 @@ import SideNavbar from "../../components/parts/SideNavbar/SideNavbar";
 import UnauthorizedError from "../../components/parts/UnauthorizedError/UnauthorizedError";
 import AnswerCard from "../../components/parts/GamesCards/AnswerCard";
 import {getRandomWord} from "../../store/actionsCreator";
+import {getUserStatistic} from "../../store/Statistic/StatisticActionCreator";
+import {getOneUser} from "../../store/Users/UserActionCreator";
 
 const BuildWord = () => {
   const dispatch = useDispatch();
   const randomWord = useSelector((state) => state.games.randomWord);
   const showAnswer = useSelector((state) => state.enterTranslation.showAnswer);
   const isAuth = useSelector((state) => state.auth.auth.isAuth);
+  const user = useSelector((state) => state.user.current_user);
+  const userId = useSelector((state) => state.auth.auth.userId);
+
+
 
   useEffect(() => {
+    dispatch(getOneUser(userId));
     dispatch({
       type: EMPTY_CURRENT_GAME,
     });
-    add_game_title();
     dispatch(getRandomWord())
+    add_game_title();
+    dispatch(getUserStatistic(user))
   }, []);
 
   const add_game_title = () => {
@@ -47,7 +55,7 @@ const BuildWord = () => {
   ) : (
     <UnauthorizedError />
   );} else {
-    return;
+    return <div className='unauthorized'>Something is wrong</div>;
   }
 };
 

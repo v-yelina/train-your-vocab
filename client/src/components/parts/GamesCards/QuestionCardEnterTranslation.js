@@ -49,7 +49,7 @@ const QuestionCardEnterTranslation = () => {
 
   return (
     <article className="card enterGame">
-      <h3 className="targetWord">{randomWord[2]}</h3>
+      <h3 className="targetWord">{randomWord.translation}</h3>
       <img
         src="https://image.freepik.com/free-vector/question-mark-sign-brush-stroke-trash-style-typography-vector_53876-140880.jpg"
         alt="Word"

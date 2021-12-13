@@ -7,15 +7,7 @@ import {
 } from "../actions";
 
 const initialState = {
-  statistic: [
-    {
-      userId: 1,
-      choose_one_count: 0,
-      enter_translation_count: 0,
-      build_word_count: 0,
-      learned_words: 0,
-    },
-  ], // [{userId, choose_one_count, enter_translation_count,build_word_count, learned_words_count}, {...}]
+  statistic: null, // [{userId, choose_one_count, enter_translation_count,build_word_count, learned_words_count}, {...}]
   errors: {
     isError: false,
     message: "",
@@ -55,7 +47,7 @@ export const StatisticReducer = (state = initialState, { type, payload }) => {
         ...state,
         statistic: {
           ...state.statistic,
-          learned_words: state.statistic.learned_words + payload,
+          learned_words_count: state.statistic.learned_words_count + payload,
         },
       };
     default:

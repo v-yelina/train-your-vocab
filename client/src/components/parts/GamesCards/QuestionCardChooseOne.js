@@ -25,7 +25,7 @@ const QuestionCardEnterTranslation = () => {
   const createAnswers = () => {
     const answersList = [randomWord.translation];
     while (answersList.length < 4) {
-      let newAnswer = vocab[Math.floor(Math.random() * vocab.length)][2];
+      let newAnswer = vocab[Math.floor(Math.random() * vocab.length)].translation;
       if (newAnswer !== randomWord.translation) {
         answersList.push(newAnswer);
       }

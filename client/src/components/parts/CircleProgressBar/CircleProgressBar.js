@@ -3,22 +3,22 @@ import "./CircleProgressBar.css";
 
 const CircleProgressBar = (props) => {
   return (
-    <div class="statsContainer">
-      <div class="statsCard">
-        <div class="box">
-          <div class="percent">
+    <div className="statsContainer">
+      <div className="statsCard">
+        <div className="box">
+          <div className="percent">
             <svg>
-              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"/>
               <circle
-                cx="70"
-                cy="70"
-                r="70"
-                style={{
-                  strokeDashoffset: `calc(440 - (440 * ${props.percent}) / 100)`,
-                }}
-              ></circle>
+    cx="70"
+    cy="70"
+    r="70"
+    style={{
+      strokeDashoffset: `calc(440 - (440 * ${props.percent}) / 100)`,
+    }}
+    />
             </svg>
-            <div class="num">
+            <div className="num">
               <h2>
                 {Math.round(props.percent)}
                 <span>%</span>
