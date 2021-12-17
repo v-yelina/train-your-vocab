@@ -2,9 +2,12 @@
 
 # dependencies
 /node_modules
+/dbdata
+../dbdata
 /.pnp
 .pnp.js
 .idea
+.yarn.lock
 
 # testing
 /coverage

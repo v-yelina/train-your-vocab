@@ -1,15 +1,29 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import MainPage from "./MainPage";
-import CardsGame from "./CardsGame";
-import Navbar from "./Navbar";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import Navbar from "./parts/Navbar/Navbar";
+import SwitchPages from "./parts/SwitchPages";
+import { authInReload } from "../store/actionsCreator";
 
-export default (props) => (
-  <div className="container">
-    <Navbar />
-    <Routes>
-      <Route path="/" index element={<MainPage />} />
-      <Route path="/cards" element={<CardsGame />} />
-    </Routes>
-  </div>
-);
+const App = () => {
+  const dispatch = useDispatch();
+
+  const setAuthReload = () => {
+    dispatch(authInReload());
+  };
+
+  useEffect(() => {
+    const authInfo = JSON.parse(localStorage.getItem("authInfo"));
+    if (authInfo && authInfo.token) {
+      setAuthReload();
+    }
+  }, []);
+
+  return (
+    <div className="container">
+      <Navbar />
+      <SwitchPages />
+    </div>
+  );
+};
+
+export default App;

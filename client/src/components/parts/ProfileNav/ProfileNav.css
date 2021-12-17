@@ -1,0 +1,11 @@
+.profileMenuNavbar nav {
+  margin: 0px;
+  padding: 0px;
+}
+
+.profileMenuNavbar .btn {
+  font-weight: 400;
+  text-transform: none;
+  font-size: 1rem;
+  margin: 0;
+}

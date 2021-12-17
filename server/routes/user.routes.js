@@ -10,7 +10,8 @@ module.exports = (app) => {
     next();
   });
 
-  app.get("./api/v1/users", [authJwt.verifyToken], controller.findAll);
+  app.get("/api/v1/users", controller.findAll);
 
-  app.get("./api/v1/users/:id", [authJwt.verifyToken], controller.findOne);
+  // app.get("/api/v1/users/:id", [authJwt.verifyToken], controller.findOne);
+  app.get("/api/v1/users/:id", controller.findOne);
 };

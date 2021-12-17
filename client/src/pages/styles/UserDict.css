@@ -1,0 +1,27 @@
+/*<div className='userDictionary'>
+<div className='userWord' key={item.wordId}>*/
+/*<span className='word'>{findWordById(item.wordId).word}</span>*/
+/*<span className='transcription'>{findWordById(item.wordId).transcription}</span>*/
+/*<span className='translation'>{findWordById(item.wordId).translation}*/
+
+.userDictionary {
+    border: 1px solid #d1c1b3;
+    border-top: none;
+    padding: 0 20% 20px;
+}
+
+.userDictionary .userWord {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+
+.userDictionary .userWord .word {
+    font-weight: bold;
+}
+
+
+
+.statisticInfo .buttons {
+    grid-column: 1/4;
+}

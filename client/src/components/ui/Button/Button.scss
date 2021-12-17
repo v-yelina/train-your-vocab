@@ -1,0 +1,46 @@
+.btn {
+  display: block;
+  background-color: transparent;
+  border-color: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+  &-login {
+    border: 2px solid #308594;
+    &:hover {
+      background-color: #308594;
+      color: white;
+    }
+  }
+  &-beige {
+    border: 2px solid #d1c1b3;
+    &:hover {
+      background-color: #d1c1b3;
+      color: white;
+    }
+  }
+  &-red {
+    border: 2px solid red;
+    &:hover {
+      background-color: red;
+      color: white;
+    }
+  }
+  &-green {
+    border: 2px solid green;
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 20px auto;
+}

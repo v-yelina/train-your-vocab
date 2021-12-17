@@ -1,0 +1,22 @@
+.statisticInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid #d1c1b3;
+    border-top: none;
+    padding: 0 20% 20px;
+}
+
+.statisticInfo .labels {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.statisticInfo .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.statisticInfo .buttons {
+    grid-column: 1/3;
+}

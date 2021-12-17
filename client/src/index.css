@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200;1,400;1,700&display=swap");
 
-body {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   font-family: "Poppins", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,71 +25,13 @@ code {
     monospace;
 }
 
-/* Navigation bar styles */
-
-.nav {
+/* Games pages styles */
+.gamePageContent {
   display: flex;
   flex-direction: row;
-  width: max-content;
-  margin: 20px 30px;
-  padding: 5px;
-  background-color: white;
-  border: 2px solid white;
-}
-
-.navlink {
-  text-decoration: none;
-  padding: 10px;
-  text-align: center;
-  border: 2px solid #d1c1b3;
-}
-
-/* Main page styles */
-.container {
-  width: 90%;
-  margin: 0 auto;
-}
-
-/* <article class="appIntroduction">
-      <h3>
-      <p> */
-
-.appIntroduction {
-  position: relative;
-  background-color: white;
-  width: 30%;
-  margin: 20vh 30% 20vh 35%;
-  padding: 8% 5% 8% 20%;
-}
-
-.appIntroduction img {
-  position: absolute;
-  top: -50px;
-  left: -350px;
-  width: 550px;
-}
-
-.appIntroduction h3 {
-  text-align: right;
-}
-
-.appIntroduction p {
-  text-align: justify;
-  text-indent: 2%;
 }
 
 /* Styles for Card Game */
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border-radius: 10px;
-  width: 20%;
-  margin: 6% auto 10%;
-  padding: 10px;
-  box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 2.6px;
-}
 
 .cardGame {
   transition: transform 1s;
@@ -95,32 +40,223 @@ code {
 
 .card .cardContent {
   width: 95%;
-  margin: 30px auto 30px;
+  margin: 20px auto 30px;
   text-align: center;
 }
 
-.card .cardContent img {
+.card img {
   width: 95%;
   margin: 0 auto;
 }
 
-.card .buttons {
+.cardGame .cardContent {
+  margin-bottom: 0;
+}
+
+.cardContent .transcriptedWord {
+  margin-top: 5px;
+  font-size: larger;
+}
+
+/* Styles for Enter Translation */
+.enterGame input {
+  margin-top: 20px;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+
+.wrongAnswer {
+  width: 35%;
+  border: 3px solid red;
+}
+
+.rightAnswer {
+  width: 35%;
+  border: 5px solid green;
+}
+
+.answerImg {
+  width: 70%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.wrongAnswer img {
+  width: 460px;
+  margin-left: -230px;
+}
+
+.rightAnswer img {
+  width: 460px;
+}
+
+/* One Game stats styles */
+.oneGameStat {
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gameResult {
+  text-align: center;
+  border: 1px solid #d1c1b3;
+  border-bottom: none;
+}
+
+.gameResult h2 {
+  margin: 10px;
+}
+
+.answerList {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #d1c1b3;
+  border-top: none;
+  padding: 5px 70px;
+}
+
+.rightAnswers {
+  width: 45%;
+  padding: 5px;
+}
+
+.rightAnswers .word {
+  color: #548c2f;
+  font-weight: 700;
+}
+
+.wrongAnswers {
+  width: 45%;
+  padding: 5px;
+}
+
+.wrongAnswers .word {
+  color: #723d46;
+  font-weight: 700;
+}
+
+/* Card Game results page */
+.resultsContainer {
+  background-color: white;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.cardGameResults {
+  border: 1px solid #d1c1b3;
+  padding: 20px;
+}
+
+/* Games List page styles */
+
+.gamesListPage {
   width: 90%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 40px;
+}
+.gamesListPage h2 {
+  display: block;
+  border: 1px solid #d1c1b3;
+  border-bottom: none;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+}
+
+.gamesList {
+  border: 1px solid #d1c1b3;
+  padding: 20px;
+  border-top: none;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-rows: max-content;
+}
+
+/* Choose one game styles */
+
+.chooseOneGame .buttons {
+  margin: 0px;
+}
+
+.chooseOneGame img {
+  width: 60%;
+}
+
+.answersRadio {
+  width: 90%;
+  padding: 10px;
+}
+
+.answersRadio .field {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 30px;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 10px;
+  border: 1px solid #d1c1b3;
 }
 
-.card .buttons .btn {
-  background-color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
+.answersRadio .field:hover {
+  background-color: #d1c1b3;
+  color: white;
 }
 
-.card .buttons .btn:first-child {
-  border: 3px solid green;
+.answersRadio .field label {
+  display: block;
+  width: max-content;
+  padding: 5px;
+  line-height: 14px;
 }
 
-.card .buttons .btn:last-child {
-  border: 3px solid red;
+.answersRadio .field input {
+  width: max-content;
+}
+
+/* Build a Word game styles */
+.buildWordGame img {
+  width: 60%;
+}
+
+.buildWordGame .field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buildWordGame .field__label {
+  width: 100%;
+}
+
+.buildWordGame .field__input {
+  width: 80%;
+  margin: 10px auto;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  text-transform: uppercase;
+}
+
+.lettersSet {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.lettersSet .btn {
+  padding: 10px;
+  margin: 0;
+}
+
+.buildWordGame .btn-login {
+  margin-bottom: 0;
+}
+
+.buildWordGame .buttons {
+  margin: 5px;
 }

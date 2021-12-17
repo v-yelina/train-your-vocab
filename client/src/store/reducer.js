@@ -1,20 +1,14 @@
-const initialState = {
-  //   isAuth: false,
-  //   users: [],
-};
+import { combineReducers } from "redux";
+import { AuthReducer } from "./Auth/AuthReducer";
+import { UsersReducer } from "./Users/UsersReducer";
+import { GamesReducer } from "./Games/GamesReducer";
+import { EnterTranslationReducer } from "./Games/EnterTranslationReducer";
+import { StatisticReducer } from "./Statistic/StatisticReducer";
 
-export const reducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    // case LOGIN:
-    //   return { ...state, isAuth: true };
-
-    // case LOGOUT:
-    //   return { ...state, isAuth: false };
-
-    // case FETCH_USERS:
-    //   return { ...state, users: payload };
-
-    default:
-      return state;
-  }
-};
+export const reducer = combineReducers({
+  statistic: StatisticReducer,
+  auth: AuthReducer,
+  user: UsersReducer,
+  games: GamesReducer,
+  enterTranslation: EnterTranslationReducer,
+});

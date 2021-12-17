@@ -1,0 +1,24 @@
+/* Navigation bar styles */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  margin: 20px 30px;
+  padding: 5px;
+  background-color: white;
+  border: 2px solid white;
+}
+
+.navlink {
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
+  border: 2px solid #d1c1b3;
+  color: black;
+}
